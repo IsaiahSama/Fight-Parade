@@ -7,6 +7,8 @@ A text based Action Adventure RPG game, where you can go on quests, complete job
 The game being text based simply refers to the main method for which information will be displayed to the user.
 Ideally, in the form of a chat window. However, some buttons and icons will be present for certain features such as Quests, Jobs and Inventory, to make things easier instead of having to memorize a whole list of commands.
 
+Game features turn based combat, where who moves first is determined by items or by level.
+
 ## Wireframe
 
 ~~As with most of my other web projects, I will be including the Wireframe for the UI when I start working on it.~~
