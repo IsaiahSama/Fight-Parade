@@ -1,13 +1,13 @@
 # FEATURES!
 
 Features will include both the core, and extra ones.
-Features will be explored and expanded on in different documents for organizational purposes.
+Features will be explored and expanded on in different documents for organizational purposes, within the Features/ folder.
 
 ## Core Features
 
 Fight Parade revolves around the following core features:
 
-- Parade coins (A currency used to make purchases)
+- Parade coins AKA Paradians (A currency used to make purchases)
 - Quest (Begins a quest for exp and parade coins)
 - Stat system (Stats for the players, weapons, items and enemies)
 - Abilities and Passives for players
