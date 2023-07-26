@@ -11,11 +11,11 @@ Fight Parade revolves around the following core features:
 - Quest (Begins a quest for exp and parade coins)
 - Stat system (Stats for the players, weapons, items and enemies)
 - Abilities and Passives for players
+- Upgrades (For stats)
 - Tiers (Tiers are based on level and stats.)
 - Train (For training certain stats)
 - Fight (Engaging in battles against enemies or other players)
 - Weapons and Armour (higher tiered ones also having unique passives / abilities)
-- Upgrades (For gear)
 - Shop (For purchasing gear and items)
 - Jobs (For receiving lesser amount of exp and parade coins)
 - Inventory
