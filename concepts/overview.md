@@ -12,7 +12,7 @@ Ideally, in the form of a chat window. However, some buttons and icons will be p
 ~~As with most of my other web projects, I will be including the Wireframe for the UI when I start working on it.~~
 With the core features completed, I can now start working on what the UI will roughly look like.
 
-_Wireframe link goes here_
+[Link to Wireframe](https://wireframe.cc/Jqsp9i)
 
 ## About this folder.
 
