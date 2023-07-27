@@ -3,10 +3,39 @@
   justify-content: right;
 }
 
+section {
+  margin-bottom: 1em;
+}
+
 #actionButtonsContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+#actionButtonsContainer > button {
+  min-width: 80%;
+  width: 80%;
+  max-width: 80%;
+}
+
+#menuButtonsSection {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#menuButtonsSection > button {
+  min-width: 20%;
+}
+
+#chatWindow {
+  min-height: 60vh;
+}
+
+#profileContainer {
+  min-height: 70%;
+  margin-top: 15%;
 }
 
 .border {
