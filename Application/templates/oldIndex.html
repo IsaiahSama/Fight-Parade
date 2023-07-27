@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style/style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+  </head>
+  <body>
+    <section id="centerSection" class="columns">
+      <section id="actionButtonsSection" class="column">
+        <div id="actionButtonsContainer" class="buttons">
+          <button id="questButton" class="button is-large">Quest</button>
+          <button id="jobButton" class="button is-large">Job</button>
+          <button id="trainButton" class="button is-large">Train</button>
+        </div>
+      </section>
+      <section id="chatWindowSection" class="column is-half">
+        <div id="chatWindow" class="box">
+          <div id="chatHeader">
+            <center>Chat Window</center>
+          </div>
+          <div id="chatBody">
+            <div class="systemMessage">
+              <p>Welcome Timmy!</p>
+            </div>
+            <div class="playerMessage">
+              <div class="playerMessageHeader">
+                <img
+                  src="https://avatars.dicebear.com/api/human/timmy.svg"
+                  alt=""
+                />
+                <p>Timmy Cake</p>
+              </div>
+              <div class="playerMessageBody">
+                <p>!Help</p>
+              </div>
+            </div>
+            <div class="systemMessage">
+              <p>
+                Help? Of course no problem. Here's a list of things I can help
+                you with.
+                <i>inserts list of help things</i>
+              </p>
+            </div>
+            <div class="playerMessage">
+              <div class="playerMessageHeader">
+                <img
+                  src="https://avatars.dicebear.com/api/human/timmy.svg"
+                  alt=""
+                />
+                <p>Timmy Cake</p>
+              </div>
+              <div class="playerMessageBody">
+                <p>!quest</p>
+              </div>
+            </div>
+            <div class="systemMessage">
+              <p>
+                Timmy goes on a quest and encounters an enemy. There's no
+                escape... BEGIN!
+              </p>
+              <p>Timmy swings and slashs enemy for 23 damage</p>
+            </div>
+            <div class="playerMessage fighter">
+              <div class="playerMessageHeader">
+                <img
+                  src="https://avatars.dicebear.com/api/human/billy.svg"
+                  alt=""
+                />
+                <p>Billy Sauce</p>
+              </div>
+              <div class="playerMessageBody">
+                <p>Lol, do better.</p>
+              </div>
+            </div>
+            <div class="playerMessage">
+              <div class="playerMessageHeader">
+                <img
+                  src="https://avatars.dicebear.com/api/human/timmy.svg"
+                  alt=""
+                />
+                <p>Timmy Cake</p>
+              </div>
+              <div class="playerMessageBody">
+                <p>🤫</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="inputDiv">
+          <input type="text" name="command" id="command" class="input" />
+          <!-- <button id="submitButton" class="button"></button> -->
+        </div>
+      </section>
+      <section id="profileSection" class="column">
+        <div id="profileContainer" class="box">
+          <center>Stat Window</center>
+          <div id="profileHeader" class="columns">
+            <div id="headerImage" class="column">
+              <img
+                src="https://avatars.dicebear.com/api/human/timmy.svg"
+                alt=""
+                height="80px"
+                width="80px"
+              />
+            </div>
+            <div id="headerData" class="column is-three-quarters">
+              <p>Name: Timmy Cake</p>
+              <progress class="progress is-primary" value="35" max="80">
+                43.75%
+              </progress>
+              <div id="levelInfo">
+                <p>Exp: 35/80</p>
+                <span>Level 3</span>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div id="profileBody" class="columns">
+            <div id="profileColumn1" class="column">
+              <p>Health: 225/225</p>
+              <p>Power: 80</p>
+              <p>Crit Chance: 10%</p>
+              <p>Ability: Warrior Cry</p>
+            </div>
+            <div id="profileColumn2" class="column">
+              <p>Tier 1</p>
+              <p>Defense: 47</p>
+              <p>Heal Chance: 15%</p>
+              <p>Passive: Wide Guard</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <hr style="color: white" />
+    <section id="bottomSection">
+      <section id="menuButtonsSection" class="buttons">
+        <button id="shopButton" class="button is-medium is-primary">
+          Shop
+        </button>
+        <button id="invButton" class="button is-medium is-link">
+          Inventory
+        </button>
+        <button id="upgradeButton" class="button is-medium is-info">
+          Upgrades
+        </button>
+        <button id="profileButton" class="button is-medium is-success">
+          Profile
+        </button>
+      </section>
+    </section>
+  </body>
+</html>

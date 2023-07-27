@@ -28,73 +28,7 @@
           <div id="chatHeader">
             <center>Chat Window</center>
           </div>
-          <div id="chatBody">
-            <div class="systemMessage">
-              <p>Welcome Timmy!</p>
-            </div>
-            <div class="playerMessage">
-              <div class="playerMessageHeader">
-                <img
-                  src="https://avatars.dicebear.com/api/human/timmy.svg"
-                  alt=""
-                />
-                <p>Timmy Cake</p>
-              </div>
-              <div class="playerMessageBody">
-                <p>!Help</p>
-              </div>
-            </div>
-            <div class="systemMessage">
-              <p>
-                Help? Of course no problem. Here's a list of things I can help
-                you with.
-                <i>inserts list of help things</i>
-              </p>
-            </div>
-            <div class="playerMessage">
-              <div class="playerMessageHeader">
-                <img
-                  src="https://avatars.dicebear.com/api/human/timmy.svg"
-                  alt=""
-                />
-                <p>Timmy Cake</p>
-              </div>
-              <div class="playerMessageBody">
-                <p>!quest</p>
-              </div>
-            </div>
-            <div class="systemMessage">
-              <p>
-                Timmy goes on a quest and encounters an enemy. There's no
-                escape... BEGIN!
-              </p>
-              <p>Timmy swings and slashs enemy for 23 damage</p>
-            </div>
-            <div class="playerMessage fighter">
-              <div class="playerMessageHeader">
-                <img
-                  src="https://avatars.dicebear.com/api/human/billy.svg"
-                  alt=""
-                />
-                <p>Billy Sauce</p>
-              </div>
-              <div class="playerMessageBody">
-                <p>Lol, do better.</p>
-              </div>
-            </div>
-            <div class="playerMessage">
-              <div class="playerMessageHeader">
-                <img
-                  src="https://avatars.dicebear.com/api/human/timmy.svg"
-                  alt=""
-                />
-                <p>Timmy Cake</p>
-              </div>
-              <div class="playerMessageBody">
-                <p>🤫</p>
-              </div>
-            </div>
-          </div>
+          <div id="chatBody"></div>
         </div>
         <div id="inputDiv">
           <input type="text" name="command" id="command" class="input" />
@@ -103,42 +37,10 @@
       </section>
       <section id="profileSection" class="column">
         <div id="profileContainer" class="box">
-          <center>Stat Window</center>
-          <div id="profileHeader" class="columns">
-            <div id="headerImage" class="column">
-              <img
-                src="https://avatars.dicebear.com/api/human/timmy.svg"
-                alt=""
-                height="80px"
-                width="80px"
-              />
-            </div>
-            <div id="headerData" class="column is-three-quarters">
-              <p>Name: Timmy Cake</p>
-              <progress class="progress is-primary" value="35" max="80">
-                43.75%
-              </progress>
-              <div id="levelInfo">
-                <p>Exp: 35/80</p>
-                <span>Level 3</span>
-              </div>
-            </div>
+          <div id="statHeader">
+            <center>Stat Window</center>
           </div>
-          <hr />
-          <div id="profileBody" class="columns">
-            <div id="profileColumn1" class="column">
-              <p>Health: 225/225</p>
-              <p>Power: 80</p>
-              <p>Crit Chance: 10%</p>
-              <p>Ability: Warrior Cry</p>
-            </div>
-            <div id="profileColumn2" class="column">
-              <p>Tier 1</p>
-              <p>Defense: 47</p>
-              <p>Heal Chance: 15%</p>
-              <p>Passive: Wide Guard</p>
-            </div>
-          </div>
+          <div id="profileFiller"></div>
         </div>
       </section>
     </section>
