@@ -31,6 +31,53 @@ section {
 
 #chatWindow {
   min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#chatBody {
+  flex: 2 1 auto;
+  overflow-y: scroll;
+}
+
+.systemMessage {
+  text-align: center;
+}
+
+.playerMessage {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.playerMessageHeader {
+  display: flex;
+  align-items: baseline;
+}
+
+.playerMessageHeader > img {
+  height: 35px;
+  width: 35px;
+}
+
+.playerMessageBody {
+  background-color: rgb(197, 237, 197);
+  border-radius: 5px;
+  min-width: 30%;
+  width: fit-content;
+  max-width: 70%;
+  padding: 0.5em;
+}
+
+.fighter .playerMessageBody {
+  background-color: aquamarine;
+  min-width: 100%;
+}
+
+.fighter {
+  margin-left: auto;
+  min-width: 30%;
+  width: fit-content;
+  max-width: 70%;
 }
 
 #profileContainer {
