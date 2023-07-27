@@ -1,0 +1,14 @@
+#paradiansDiv {
+  display: flex;
+  justify-content: right;
+}
+
+#actionButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.border {
+  border: 1px solid blue;
+}

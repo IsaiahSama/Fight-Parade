@@ -6,35 +6,47 @@
     <title>Document</title>
     <link
       rel="stylesheet"
+      href="{{ url_for('static', filename='style/style.css')}}"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
     <script src="https://unpkg.com/htmx.org@1.9.4"></script>
   </head>
   <body>
     <section id="topSection">
-      <div id="paradiansDiv">PCoins - 0</div>
+      <div id="paradiansDiv" class="container">
+        <p>PCoins - 0</p>
+      </div>
     </section>
-    <section id="centerSection">
-      <section id="actionButtonsSection">
-        <button id="questButton">Quest</button>
-        <button id="jobButton">Job</button>
-        <button id="trainButton">Train</button>
+    <section id="centerSection" class="columns">
+      <section id="actionButtonsSection" class="column">
+        <div id="actionButtonsContainer" class="container">
+          <button id="questButton">Quest</button>
+          <button id="jobButton">Job</button>
+          <button id="trainButton">Train</button>
+        </div>
       </section>
-      <section id="chatWindowSection">
-        <div id="chatWindow"></div>
+      <section id="chatWindowSection" class="column is-half">
+        <div id="chatWindow" class="box"><center>Chat Window</center></div>
         <div id="inputDiv">
           <input type="text" name="command" id="command" />
           <button id="submitButton"></button>
         </div>
       </section>
-      <section id="profileSection"></section>
+      <section id="profileSection" class="column">
+        <div id="profileContainer" class="box">
+          <center>Profile</center>
+        </div>
+      </section>
     </section>
     <section id="bottomSection">
-      <section id="menuButtonsSection">
-        <button id="shopButton">Shop</button>
-        <button id="invButton">Inventory</button>
-        <button id="upgradeButton">Upgrades</button>
-        <button id="profileButton">Profile</button>
+      <section id="menuButtonsSection" class="columns">
+        <button id="shopButton" class="column">Shop</button>
+        <button id="invButton" class="column">Inventory</button>
+        <button id="upgradeButton" class="column">Upgrades</button>
+        <button id="profileButton" class="column">Profile</button>
       </section>
     </section>
   </body>
