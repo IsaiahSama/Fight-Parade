@@ -11,9 +11,28 @@
     <script src="https://unpkg.com/htmx.org@1.9.4"></script>
   </head>
   <body>
-    <section id="actionButtonsSection"></section>
-    <section id="chatWindowSection"></section>
-    <section id="profileSection"></section>
-    <sectionn id="menuButtonsSection"></sectionn>
+    <section id="centerSection">
+      <section id="actionButtonsSection">
+        <button id="questButton">Quest</button>
+        <button id="jobButton">Job</button>
+        <button id="trainButton">Train</button>
+      </section>
+      <section id="chatWindowSection">
+        <div id="chatWindow"></div>
+        <div id="inputDiv">
+          <input type="text" name="command" id="command" />
+          <button id="submitButton"></button>
+        </div>
+      </section>
+      <section id="profileSection"></section>
+    </section>
+    <section id="bottomSection">
+      <section id="menuButtonsSection">
+        <button id="shopButton">Shop</button>
+        <button id="invButton">Inventory</button>
+        <button id="upgradeButton">Upgrades</button>
+        <button id="profileButton">Profile</button>
+      </section>
+    </section>
   </body>
 </html>
