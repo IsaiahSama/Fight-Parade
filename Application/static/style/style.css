@@ -38,6 +38,26 @@ section {
   margin-top: 15%;
 }
 
+#levelInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+#profileContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+#profileBody {
+  flex: 2 1 auto;
+}
+
+#profileBody > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 .border {
   border: 1px solid blue;
 }
