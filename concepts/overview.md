@@ -20,6 +20,8 @@ With the core features completed, I can now start working on what the UI will ro
 
 As mentioned in the README.md file, the game had a good amount of features to it, as I most likely went a bit overboard as it was the first publicly accessible game I actually ever made. This folder will serve as a place for me to keep track of the features I've added / want to add, to make the development process go a bit more focused.
 
+Note: Nothing here is final, and are all subject to change as development continues.
+
 ## Technology
 
 This project will be built using my FSH (pronounced fish) stack, which makes use of:
