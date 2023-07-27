@@ -1,0 +1,8 @@
+system - Welcome Player! Are you ready to begin?
+player Timmy !help 
+system - Help? Of course, no problem! Here's a list of things I can help you with.
+system - Sleeping
+system - Grinding
+system - Can't help with singing though.
+fighter Billy Lol, do better.
+player Timmy :(

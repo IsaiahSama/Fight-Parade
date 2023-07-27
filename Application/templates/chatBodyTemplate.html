@@ -1,0 +1,31 @@
+{% for message in messages %} {% if message.sender == "system" %}
+<div class="systemMessage">
+  <p>{{ message.content }}</p>
+</div>
+{% elif message.sender == "fighter" %}
+<div class="playerMessage fighter">
+  <div class="playerMessageHeader">
+    <img
+      src="https://avatars.dicebear.com/api/human/{{message.sender_name}}.svg"
+      alt=""
+    />
+    <p>{{message.sender_name}}</p>
+  </div>
+  <div class="playerMessageBody">
+    <p>{{message.content}}</p>
+  </div>
+</div>
+{% else %}
+<div class="playerMessage">
+  <div class="playerMessageHeader">
+    <img
+      src="https://avatars.dicebear.com/api/human/{{message.sender_name}}.svg"
+      alt=""
+    />
+    <p>{{message.sender_name}}</p>
+  </div>
+  <div class="playerMessageBody">
+    <p>{{message.content}}</p>
+  </div>
+</div>
+{% endif %} {% endfor %}

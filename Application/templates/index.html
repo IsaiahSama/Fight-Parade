@@ -32,7 +32,7 @@
           <div id="chatHeader">
             <center>Chat Window</center>
           </div>
-          <div id="chatBody"></div>
+          <div id="chatBody" hx-get="/get/chat/" hx-trigger="every 5s"></div>
         </div>
         <div id="inputDiv">
           <input type="text" name="command" id="command" class="input" />
@@ -44,7 +44,11 @@
           <div id="statHeader">
             <center>Stat Window</center>
           </div>
-          <div id="profileFiller"></div>
+          <div
+            id="profileData"
+            hx-get="/get/stats/"
+            hx-trigger="every 5s"
+          ></div>
         </div>
       </section>
     </section>
