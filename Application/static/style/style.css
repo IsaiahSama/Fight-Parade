@@ -96,18 +96,22 @@ section {
 
 #profileContainer {
   min-height: 70%;
+  height: 70%;
   margin-top: 15%;
   background-color: #e7e5e5;
+  /* display: flex;
+    flex-direction: column; */
+}
+
+#profileData {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 #levelInfo {
   display: flex;
   justify-content: space-between;
-}
-
-#profileContainer {
-  display: flex;
-  flex-direction: column;
 }
 
 #profileBody {
