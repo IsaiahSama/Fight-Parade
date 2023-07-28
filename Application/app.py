@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for
-from testing.testing import Message, Stats, StatItem
+from testing.testing import Message, Stats, StatItem, Item
 
 app = Flask(__name__)
 
@@ -21,8 +21,14 @@ def get_stats():
 def get_upgrades():
     stats = load_stats()
     upgradables = load_upgrades()
-    print(upgradables)
     return render_template("upgradeWindowTemplate.html", stats=stats, stat_items=upgradables)
+
+@app.route("/get/inventory/")
+def get_inventory():
+    stats = load_stats()
+    tier, pcoins = stats.tier, stats.pcoins
+    items = load_inventory()
+    return render_template("inventoryWindowTemplate.html", items=items, tier=tier, pcoins=pcoins)
 
 def load_messages():
     with open("./testing/chatTest.txt") as fp:
@@ -47,6 +53,12 @@ def load_upgrades():
     with open("./testing/upgradeTest.txt") as fp:
         stats = [StatItem(*line.strip().split(" ")) for line in fp.readlines()]
     return stats
+
+def load_inventory():
+    with open("./testing/inventoryTest.txt") as fp:
+        items = [Item(*line.strip().split(" ")) for line in fp.readlines()]
+
+    return items
     
 
 if __name__ == "__main__":

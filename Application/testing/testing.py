@@ -31,3 +31,10 @@ class StatItem:
         self.cap = cap
         self.incr = incr
         self.price = price.strip()
+
+class Item:
+    def __init__(self, id_, name, tier, amount="N/A"):
+        self.id = id_ 
+        self.name = name 
+        self.tier = tier
+        self.amount = amount

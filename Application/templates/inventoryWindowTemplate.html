@@ -1,0 +1,37 @@
+<div id="inventoryTitle">
+  <center>Inventory Window</center>
+</div>
+{% if items %}
+<div id="inventoryInfo">
+  <ul style="list-style-type: disc">
+    <li>You can get items for your inventory via Quests, Jobs or the Shop</li>
+    <li>To use an item, use the command !use item_id</li>
+    <li>To sell an item, use !sell item_id</li>
+    <li>To get info on an item, use !info item_id</li>
+  </ul>
+</div>
+<hr />
+<div id="inventoryHeader" class="statHeader">
+  <p>Tier {{ tier }}</p>
+  <p>Paradians: {{ pcoins }}₱</p>
+</div>
+<div id="inventoryItems" class="generalGrid">
+  {% for item in items %}
+  <div class="itemCard card">
+    <div class="card-image">
+      <center>
+        <img src="" alt="" width="50px" height="50px" />
+      </center>
+    </div>
+    <div class="card-header-title is-centered">{{ item.name }}</div>
+    <div class="card-footer">
+      <p class="card-footer-item">Amount: {{ item.amount }}</p>
+      <p class="card-footer-item">ID: {{ item.id }}</p>
+      <p class="card-footer-item">Tier: {{ item.tier }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p>Your inventory is empty</p>
+{% endif %}

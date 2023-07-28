@@ -14,7 +14,6 @@ section {
 #centerSection {
   margin-top: 2em;
   padding-top: 2em;
-  /* align-items: center; */
   max-height: 85vh;
 }
 
@@ -113,6 +112,16 @@ section {
   overflow-y: scroll;
 }
 
+.generalGrid {
+  display: grid;
+  font-size: small;
+}
+
+.statHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* Profile */
 
 #profileData {
@@ -141,16 +150,6 @@ section {
   font-size: smaller;
 }
 
-#upgradeStatInfo {
-  display: flex;
-  justify-content: space-between;
-}
-
-#upgradeStatList {
-  display: grid;
-  font-size: small;
-}
-
 .upgradeStatCard {
   margin-top: 0.5em;
 }
@@ -162,5 +161,9 @@ section {
 }
 
 /* Inventory */
-
 /* Shop */
+.itemCard {
+  padding: 0.5em;
+  margin-top: 0.2em;
+  margin-bottom: 0.3em;
+}
