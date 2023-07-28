@@ -32,24 +32,20 @@
           <div id="chatHeader">
             <center>Chat Window</center>
           </div>
-          <div id="chatBody" hx-get="/get/chat/" hx-trigger="every 5s"></div>
+          <div id="chatBody" hx-get="/get/chat/" hx-trigger="load"></div>
         </div>
         <div id="inputDiv">
           <input type="text" name="command" id="command" class="input" />
           <!-- <button id="submitButton" class="button"></button> -->
         </div>
       </section>
-      <section id="profileSection" class="column">
-        <div id="profileContainer" class="box">
-          <div id="statHeader">
-            <center>Stat Window</center>
-          </div>
-          <div
-            id="profileData"
-            hx-get="/get/stats/"
-            hx-trigger="every 5s"
-          ></div>
-        </div>
+      <section id="generalSection" class="column">
+        <div
+          id="generalWindow"
+          class="box"
+          hx-get="/get/stats/"
+          hx-trigger="load"
+        ></div>
       </section>
     </section>
     <hr />
