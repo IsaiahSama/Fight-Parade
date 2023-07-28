@@ -38,3 +38,13 @@ class Item:
         self.name = name 
         self.tier = tier
         self.amount = amount
+        self.img = "https://api.dicebear.com/6.x/icons/svg?seed="+name
+
+class ShopItem:
+    def __init__(self, id_, name, tier, price, type_):
+        self.id = id_
+        self.name = name 
+        self.tier = tier 
+        self.price = price
+        self.type = type_
+        self.img = "https://api.dicebear.com/6.x/icons/svg?seed="+name

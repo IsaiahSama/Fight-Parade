@@ -1,0 +1,7 @@
+1001 Bane_Sword 2 1500 weapon
+2345 Bane_Armour 2 1450 armour 
+1005 Nightmare_Blade 3 2400 weapon 
+3312 Sharp_Eye 1 900 skill
+4214 Thick_Fat 2 1200 skill 
+5001 Red_Potion 1 200 item
+5003 Exp_Gummy 2 400 item

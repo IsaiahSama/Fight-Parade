@@ -1,0 +1,16 @@
+{% for item in items %}
+<div class="itemCard card">
+  <div class="card-image">
+    <center>
+      <img src="{{ item.img }}" alt="" width="50px" height="50px" />
+    </center>
+  </div>
+  <div class="card-header-title is-centered">{{ item.name }}</div>
+  <div class="card-footer">
+    <p class="card-footer-item">Price: {{ item.price }}₱</p>
+    <p class="card-footer-item">ID: {{ item.id }}</p>
+    <p class="card-footer-item">Tier: {{ item.tier }}</p>
+    <p class="card-footer-item">Type: {{ item.type }}</p>
+  </div>
+</div>
+{% endfor %}

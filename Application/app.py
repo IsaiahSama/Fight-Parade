@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for
-from testing.testing import Message, Stats, StatItem, Item
+from testing.testing import Message, Stats, StatItem, Item, ShopItem
 
 app = Flask(__name__)
 
@@ -30,6 +30,20 @@ def get_inventory():
     items = load_inventory()
     return render_template("inventoryWindowTemplate.html", items=items, tier=tier, pcoins=pcoins)
 
+@app.route("/get/shop/")
+@app.route("/get/shop/<string:type_>/")
+def get_shop(type_=""):
+    stats = load_stats()
+    tier, pcoins, level = stats.tier, stats.pcoins, stats.level
+    items = load_items()
+
+    if type_:
+        items = list(filter(lambda x: x.type == type_, items))
+
+    page = "shopWindowTemplate.html" if not type_ else "shopItemsTemplate.html"
+
+    return render_template(page, tier=tier, pcoins=pcoins, level=level, items=items)
+
 def load_messages():
     with open("./testing/chatTest.txt") as fp:
         lines = fp.readlines()
@@ -57,6 +71,12 @@ def load_upgrades():
 def load_inventory():
     with open("./testing/inventoryTest.txt") as fp:
         items = [Item(*line.strip().split(" ")) for line in fp.readlines()]
+
+    return items
+
+def load_items():
+    with open("./testing/shopTest.txt") as fp:
+        items = [ShopItem(*line.strip().split(" ")) for line in fp.readlines()]
 
     return items
     

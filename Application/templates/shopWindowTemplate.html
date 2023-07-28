@@ -1,0 +1,54 @@
+<div id="shopTitle">
+  <center>Shop Window</center>
+</div>
+
+<div id="shopInfo">
+  <ul style="list-style-type: disc">
+    <li>Here you can buy various items to help you in your adventure.</li>
+    <li>To buy an item, use the !buy item_id command</li>
+    <li>To get more information on an item, use the !info item_id command</li>
+  </ul>
+</div>
+<div id="shopButtonList" class="buttons" style="margin-top: 0.5em">
+  <button
+    class="button is-dark"
+    hx-get="/get/shop/armour/"
+    hx-target="#shopItems"
+  >
+    Armour
+  </button>
+  <button
+    class="button is-dark"
+    hx-get="/get/shop/weapon/"
+    hx-target="#shopItems"
+  >
+    Weapons
+  </button>
+  <button
+    class="button is-dark"
+    hx-get="/get/shop/item/"
+    hx-target="#shopItems"
+  >
+    Items
+  </button>
+  <button
+    class="button is-dark"
+    hx-get="/get/shop/skill/"
+    hx-target="#shopItems"
+  >
+    Skills
+  </button>
+</div>
+
+<div id="shopHeader" class="statHeader">
+  <p>Level {{ level }}</p>
+  <p>Tier {{ tier }}</p>
+  <p>Paradians: {{ pcoins }}₱</p>
+</div>
+<hr />
+
+{% if items %}
+<div id="shopItems">Select the type of item you want to buy above.</div>
+{% else %}
+<p>Apologies, the shop is currently empty.</p>
+{% endif %}
