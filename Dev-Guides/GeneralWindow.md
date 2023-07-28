@@ -36,7 +36,7 @@ This includes:
 - The Item (Maybe an Icon if I feel fancy)
 - Commands needed to get info, use or sell the item.
 
-## Show
+## Shop
 
 This window will be where Players may look at items separated by Types.
 Initially, a mini menu will appear containing the following options:
