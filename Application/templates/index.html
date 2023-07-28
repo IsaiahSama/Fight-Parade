@@ -40,27 +40,45 @@
         </div>
       </section>
       <section id="generalSection" class="column">
-        <div
-          id="generalWindow"
-          class="box"
-          hx-get="/get/shop/"
-          hx-trigger="load"
-        ></div>
+        <div id="generalWindow" class="box">
+          <center>General Window</center>
+          <p>Get started by pressing the Profile button below</p>
+        </div>
       </section>
     </section>
     <hr />
     <section id="bottomSection">
       <section id="menuButtonsSection" class="buttons">
-        <button id="shopButton" class="button is-medium is-primary">
+        <button
+          id="shopButton"
+          class="button is-medium is-primary"
+          hx-get="/get/shop/"
+          hx-target="#generalWindow"
+        >
           Shop
         </button>
-        <button id="invButton" class="button is-medium is-link">
+        <button
+          id="invButton"
+          class="button is-medium is-link"
+          hx-get="/get/inventory/"
+          hx-target="#generalWindow"
+        >
           Inventory
         </button>
-        <button id="upgradeButton" class="button is-medium is-info">
+        <button
+          id="upgradeButton"
+          class="button is-medium is-info"
+          hx-get="/get/upgrades/"
+          hx-target="#generalWindow"
+        >
           Upgrades
         </button>
-        <button id="profileButton" class="button is-medium is-success">
+        <button
+          id="profileButton"
+          class="button is-medium is-success"
+          hx-get="/get/stats/"
+          hx-target="#generalWindow"
+        >
           Profile
         </button>
       </section>
