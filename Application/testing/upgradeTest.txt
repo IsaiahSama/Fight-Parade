@@ -1,0 +1,5 @@
+Power 70 110 3 400
+Defense 48 60 2 350
+Crit_Chance 13 17 1 267
+Heal_Chance 11 15 1 473 
+Health 270 400 10 729

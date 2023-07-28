@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for
+from testing.testing import Message, Stats, StatItem
 
 app = Flask(__name__)
 
@@ -16,14 +17,15 @@ def get_stats():
     stats = load_stats()
     return render_template("statWindowTemplate.html", stats=stats)
 
-class Message:
-    def __init__(self, sender, sender_name, content):
-        self.sender = sender
-        self.sender_name = sender_name
-        self.content = content
+@app.route("/get/upgrades/")
+def get_upgrades():
+    stats = load_stats()
+    upgradables = load_upgrades()
+    print(upgradables)
+    return render_template("upgradeWindowTemplate.html", stats=stats, stat_items=upgradables)
 
 def load_messages():
-    with open("chatTest.txt") as fp:
+    with open("./testing/chatTest.txt") as fp:
         lines = fp.readlines()
 
     messages = []
@@ -33,30 +35,19 @@ def load_messages():
 
     return messages
 
-class Stats:
-    def __init__(self, name, level, exp, max_exp, health, max_health, tier, power, defense, crit_chance, heal_chance, ability, passive ):
-        self.name = name
-        self.level = level 
-        self.exp = exp 
-        self.max_exp = max_exp
-        self.per_exp = (int(exp) / int(max_exp)) * 100
-        self.health = health 
-        self.max_health = max_health
-        self.tier = tier 
-        self.power = power 
-        self.defense = defense 
-        self.crit_chance = crit_chance
-        self.heal_chance = heal_chance 
-        self.ability = ability
-        self.passive = passive 
-
 def load_stats():
-    with open("statTest.txt") as fp:
+    with open("./testing/statTest.txt") as fp:
         statline = fp.read()
 
     args = statline.split(" ")
     stats = Stats(*args)
     return stats
+
+def load_upgrades():
+    with open("./testing/upgradeTest.txt") as fp:
+        stats = [StatItem(*line.strip().split(" ")) for line in fp.readlines()]
+    return stats
+    
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=20000, debug=True)
