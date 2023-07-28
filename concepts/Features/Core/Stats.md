@@ -46,4 +46,4 @@ As an RPG experience, stats are the cornerstone to knowing how strong everything
 
 ## Upgrades
 
-Upgrades are for the Player's stats. All of the stats listed under Player above are upgradable, increasing their amount in exchange for Paradian with a max cap per tier.
+Upgrades are for the Player's stats. All of the stats listed under Player above are upgradable, increasing their amount in exchange for Paradian with a max cap per tier (except for level and exp).
