@@ -40,7 +40,7 @@
         </div>
       </section>
       <section id="generalSection" class="column">
-        <div id="generalWindow" class="box">
+        <div id="generalWindow" class="box slide-it">
           <center>General Window</center>
           <p>Get started by pressing the Profile button below</p>
         </div>
@@ -54,6 +54,7 @@
           class="button is-medium is-primary"
           hx-get="/get/shop/"
           hx-target="#generalWindow"
+          hx-swap="transition:true innerHTML"
         >
           Shop
         </button>
@@ -62,6 +63,7 @@
           class="button is-medium is-link"
           hx-get="/get/inventory/"
           hx-target="#generalWindow"
+          hx-swap="transition:true innerHTML"
         >
           Inventory
         </button>
@@ -70,6 +72,7 @@
           class="button is-medium is-info"
           hx-get="/get/upgrades/"
           hx-target="#generalWindow"
+          hx-swap="transition:true innerHTML"
         >
           Upgrades
         </button>
@@ -78,6 +81,7 @@
           class="button is-medium is-success"
           hx-get="/get/stats/"
           hx-target="#generalWindow"
+          hx-swap="transition:true innerHTML"
         >
           Profile
         </button>
