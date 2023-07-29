@@ -40,6 +40,22 @@ class Item:
         self.amount = amount
         self.img = "https://api.dicebear.com/6.x/icons/svg?seed="+name
 
+    def __str__(self):
+        return f"""
+        <div class="itemCard card">
+            <div class="card-image">
+                <center>
+                    <img src="{ self.img }" alt="" width="50px" height="50px" />
+                </center>
+            </div>
+            <div class="card-header-title is-centered">{ self.name }</div>
+            <div class="card-footer">
+                <p class="card-footer-item">Amount: { self.amount }</p>
+                <p class="card-footer-item">ID: { self.id }</p>
+                <p class="card-footer-item">Tier: { self.tier }</p>
+            </div>
+        </div>"""
+
 class ShopItem:
     def __init__(self, id_, name, tier, price, type_):
         self.id = id_
