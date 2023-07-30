@@ -9,6 +9,7 @@ The attributes for Characters are:
 - level
 - health
 - power
+- heal_chance
 - crit_chance
 - weapon
 - armour
@@ -22,7 +23,6 @@ Players (also referred to as Fighters) are the characters that the player will b
 
 The unique attributes for players are:
 
-- heal_chance
 - paradians (pcoins)
 - inventory
 
