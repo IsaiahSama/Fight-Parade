@@ -1,2 +1,2 @@
-id entry_message attack_message xp_yield coin_yield item
-213413 Straight_from_Slimenia,_He_summons_his_tank Fires_his_cannon_at 1200 3500 -1
+id name level health power heal_chance crit_chance weapon_id armour_id ability_id passive_id tier entry_message attack_message xp_yield coin_yield item
+213413 Slivial 80 325 145 30 45 320004 -1 720101 920021 2 Straight_from_Slimenia,_He_summons_his_tank Fires_his_cannon_at 1200 3500 -1

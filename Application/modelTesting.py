@@ -41,25 +41,18 @@ def make_request(endpoint:str, items:list):
 
 def create_models():
     # Getting the info
-    # items = get_info("items")
-    characters = get_info("characters")
     fighters = get_info("fighters")
     enemies = get_info('enemies')
-    base_items = get_info("base")
     weapons = get_info("weapons")
     armours = get_info("armours")
     abilities = get_info("abilities")
     passives  = get_info("passives")
 
     # Making the requests to update for fighter
-    c = [character for character in characters if character['id'] == fighters[0]['id']]
-    print(c)
-    c[0].update(fighters[0])
-    print(dumps(c[0]))
-    # print(data)
-    res = post(URL+"user/", json=dumps(c[0]))
-    res.raise_for_status()
-    print(res.json())
+    make_request("user", fighters)
+    make_request("weapon", weapons)
+    make_request("armour", armours)
+    make_request("ability", abilities)
 
 if __name__ == "__main__":
     create_models()

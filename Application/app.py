@@ -55,51 +55,42 @@ def get_shop(type_=""):
 @app.route("/add/user/", methods=["POST"])
 def add_user():
     data = loads(request.json)
-    fighter = Fighter(
-        id=data['id'],
-        name=data['name'],
-        level=data['level'],
-        health=data['health'],
-        power=data['power'],
-        heal_chance=data['heal'],
-        crit_chance=data['crit'],
-        weapon_id=data['weapon'],
-        armour_id=data['armour'],
-        ability_id=data['ability'],
-        passive_id=data['passive'],
-        tier=data['tier'],
-        paradians=data['paradians'],
-        inventory=data['inventory']
-    )
+    fighter = Fighter(**data)
     db.session.add(fighter)
     db.session.commit()
     return {"Status": "success"}
 
 @app.route("/add/enemy/", methods=["POST"])
 def add_enemy():
-    pass
+    data = loads(request.json)
+    enemy = Enemy(**data)
+    db.session.add(enemy)
+    db.session.commit()
+    return {"Status": "success"}
 
 @app.route("/add/weapon/", methods=["POST"])
 def add_weapon():
-    pass
+    data = loads(request.json)
+    weapon = Weapon(**data)
+    db.session.add(weapon)
+    db.session.commit()
+    return {"Status": "success"}
 
 @app.route("/add/armour/", methods=["POST"])
 def add_armour():
-    pass
+    data = loads(request.json)
+    armour = Armour(**data)
+    db.session.add(armour)
+    db.session.commit()
+    return {"Status": "success"}
 
 @app.route("/add/ability/", methods=["POST"])
 def add_ability():
-    pass
-
-def create_new_character(**kwargs):
-    character = Character(**kwargs) 
-    db.session.add(character)
+    data = loads(request.json)
+    ability = Ability(**data)
+    db.session.add(ability)
     db.session.commit()
-
-def create_new_item_base(**kwargs):
-    base_item = BaseItem(**kwargs)
-    db.session.add(base_item)
-    db.session.commit()
+    return {"Status": "success"}
 
 with app.app_context():
     db.create_all()
