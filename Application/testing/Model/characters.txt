@@ -1,0 +1,3 @@
+id name level health power heal crit weapon armour ability passive tier
+3156322326 James 75 520 80 22 35 320001 520001 710003 -1 2
+213413 Slivial 80 325 145 30 45 320004 -1 720101 920021 2

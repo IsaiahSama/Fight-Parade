@@ -1,0 +1,3 @@
+id chant cooldown
+710003 SOUL_SUCKER 3
+720101 Outer..._BLAST 4

@@ -1,0 +1,2 @@
+id chant cooldown 
+920021 Regen_go_brr 0

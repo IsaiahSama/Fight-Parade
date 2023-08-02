@@ -1,0 +1,2 @@
+id entry_message attack_message xp_yield coin_yield item
+213413 Straight_from_Slimenia,_He_summons_his_tank Fires_his_cannon_at 1200 3500 -1

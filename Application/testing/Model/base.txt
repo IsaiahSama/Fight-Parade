@@ -1,0 +1,7 @@
+id name description tooltip effect cost tier reborn
+320001 Blaster blaster_go_pew_pew idk_if_I_want_these_tooltips_anymore 40 14000 2 0
+320004 Miracle_Sword A_sword_from_another_world Straight_from_Slimenia 50 20123 2 0
+520001 Paladium Armour_made_from_a_precious_ore increases_life_regen 10% 19000 2 0
+710003 Soul_Sucker A_powerful_sucking_technique deals_2x_damage_and_heals_for_15hp 15 25000 1 0
+720101 Blast blasts_the_enemy_with_a_powerful_attack increases_dmg_by_1.75x -40 30000 2 0
+920021 Regeneration Regains_hp_after_every_turn restores_10%_hp_after_every_turn 10 30000 2 0
