@@ -1,4 +1,4 @@
-# Items
+# Items / Consumables
 
 I felt a bit unsure about whether Items should be considered a core feature or not, since they are the main reason why the inventory exists.
 
