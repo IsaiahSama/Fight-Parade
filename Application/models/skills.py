@@ -1,14 +1,15 @@
 """File to store the skill model and information."""
 
 from item import BaseItem
+from .extensions import db
 
 class Ability(BaseItem):
     """Represents an Ability"""
-
-    def __init__(self, name: str, id_: int, description: str, tooltip: str, effect: dict, cost:int, tier: int, reborn: int, chant:str, cooldown:int):
-        super().__init__(name, id_, description, tooltip, effect, cost, tier, reborn)
-        self.chant = chant 
-        self.cooldown = cooldown
+    id = db.Column(db.Integer, db.ForeignKey('BaseItem.id'), primary_key=True)
+    chant = db.Column(db.String(60))
+    cooldown = db.Column(db.Integer)
 
 class Passive(Ability):
-    pass
+    id = db.Column(db.Integer, db.ForeignKey('BaseItem.id'), primary_key=True)
+
+    

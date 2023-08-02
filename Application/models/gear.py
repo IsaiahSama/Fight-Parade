@@ -1,14 +1,11 @@
 """File to store the gear model and information."""
 from item import BaseItem
+from .extensions import db
 
 class Weapon(BaseItem):
     """Represents a weapon."""
-
-    def __init__(self, name: str, id_: int, description: str, tooltip: str, effect: dict, cost:int, tier: int, reborn:int):
-        super().__init__(name, id_, description, tooltip, effect, cost, tier, reborn)
+    id = db.Column(db.Integer, db.ForeignKey('BaseItem.id'), primary_key=True)
 
 class Armour(BaseItem):
     """Represents Armour"""
-
-    def __init__(self, name: str, id_: int, description: str, tooltip: str, effect: dict, cost:int, tier: int, reborn: int):
-        super().__init__(name, id_, description, tooltip, effect, cost, tier, reborn)
+    id = db.Column(db.Integer, db.ForeignKey('BaseItem.id'), primary_key=True)

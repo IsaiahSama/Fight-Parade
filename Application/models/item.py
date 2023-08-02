@@ -1,23 +1,21 @@
 """File to store the item model and information."""
+from .extensions import db 
 
-class BaseItem:
+class BaseItem(db.Model):
     """Base class for all Items (Item, Gear and Skills)"""
 
-    def __init__(self, name:str, id_:int, description:str, tooltip:str, effect:dict, cost:int, tier:int, reborn:int):
-        self.name = name 
-        self.id = id_
-        self.description = description
-        self.tooltip = tooltip 
-        self.effect = effect
-        self.cost = cost
-        self.tier = tier 
-        self.reborn = reborn
+    id = db.Column(db.Intger, primary_key=True)
+    name = db.Column(db.String(40))
+    description = db.Column(db.String(70))
+    tooltip = db.Column(db.String(50))
+    effect = db.Column(db.string(150))
+    cost = db.Column(db.Integer)
+    tier = db.Column(db.Integer)
+    reborn = db.Column(db.Integer)
 
 class Item(BaseItem):
     """Class used to rerpresent consumable items"""
 
-    def __init__(self, name: str, id_: int, description: str, tooltip: str, effect: dict, cost:int, tier: int, duration):
-        super().__init__(name, id_, description, tooltip, effect, tier, 0)
-        self.duration = duration
-
+    id = db.Column(db.Integer, db.ForeignKey('BaseItem.id'), primary_key=True)
+    duration = db.Column(db.Integer)
 
