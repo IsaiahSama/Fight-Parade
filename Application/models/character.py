@@ -11,11 +11,15 @@ class Character(db.Model):
     power = db.Column(db.Integer)
     heal_chance = db.Column(db.Integer)
     crit_chance = db.Column(db.Integer)
+    weapon_id = db.Column(db.Integer, db.ForeignKey("weapon.id"))
+    armour_id = db.Column(db.Integer, db.ForeignKey("weapon.id"))
+    ability_id = db.Column(db.Integer, db.ForeignKey("weapon.id"))
+    passive_id = db.Column(db.Integer, db.ForeignKey("weapon.id"))
+    tier = db.Column(db.Integer)
     weapon = db.relationship("Weapon", backref='character', lazy=True)
     armour = db.relationship("Armour", backref='character', lazy=True)
     ability = db.relationship("Ability", backref='character', lazy=True)
     passive = db.relationship("Passive", backref='character', lazy=True)
-    tier = db.Column(db.Integer)
 
 
 class Fighter(Character):
@@ -24,10 +28,6 @@ class Fighter(Character):
     id = db.Column(db.Integer, db.ForeignKey('character.id'), primary_key=True)
     paradians = db.Column(db.Integer)
     inventory = db.Column(db.String(100))
-
-    # __mapper_args__ = {
-    #     'polymorphic_identity': 'fighter',
-    # }
 
 class Enemy(Character):
     """THis is the Enemy class that will represent foes in the game"""
@@ -38,7 +38,3 @@ class Enemy(Character):
     xp_yield = db.Column(db.Integer)
     coin_yield = db.Column(db.Integer)
     item = db.Column(db.String(10))
-
-    # __mapper_args__ = {
-    #     'polymorphic_identity': 'enemy',
-    # }
