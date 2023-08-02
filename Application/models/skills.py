@@ -9,7 +9,9 @@ class Ability(BaseItem):
     chant = db.Column(db.String(60))
     cooldown = db.Column(db.Integer)
 
-class Passive(Ability):
-    id = db.Column(db.Integer, db.ForeignKey('ability.id'), primary_key=True)
+class Passive(BaseItem):
+    id = db.Column(db.Integer, db.ForeignKey('base_item.id'), primary_key=True)
+    chant = db.Column(db.String(60))
+    cooldown = db.Column(db.Integer)
 
     
