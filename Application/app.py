@@ -1,7 +1,6 @@
 from flask import Flask, render_template, url_for
 from testing.testing import Message, Stats, StatItem, Item, ShopItem
-
-app = Flask(__name__)
+from models.extensions import app
 
 @app.route("/")
 def index():
