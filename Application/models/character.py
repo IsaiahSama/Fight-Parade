@@ -12,14 +12,14 @@ class Character(db.Model):
     heal_chance = db.Column(db.Integer)
     crit_chance = db.Column(db.Integer)
     weapon_id = db.Column(db.Integer, db.ForeignKey("weapon.id"))
-    armour_id = db.Column(db.Integer, db.ForeignKey("weapon.id"))
-    ability_id = db.Column(db.Integer, db.ForeignKey("weapon.id"))
-    passive_id = db.Column(db.Integer, db.ForeignKey("weapon.id"))
+    armour_id = db.Column(db.Integer, db.ForeignKey("armour.id"))
+    ability_id = db.Column(db.Integer, db.ForeignKey("ability.id"))
+    passive_id = db.Column(db.Integer, db.ForeignKey("passive.id"))
     tier = db.Column(db.Integer)
-    weapon = db.relationship("Weapon", backref='character', lazy=True)
-    armour = db.relationship("Armour", backref='character', lazy=True)
-    ability = db.relationship("Ability", backref='character', lazy=True)
-    passive = db.relationship("Passive", backref='character', lazy=True)
+    weapon = db.relationship("Weapon", foreign_keys=[weapon_id], backref='character', lazy=True)
+    armour = db.relationship("Armour", foreign_keys=[armour_id], backref='character', lazy=True)
+    ability = db.relationship("Ability", foreign_keys=[ability_id], backref='character', lazy=True)
+    passive = db.relationship("Passive", foreign_keys=[passive_id], backref='character', lazy=True)
 
 
 class Fighter(Character):
