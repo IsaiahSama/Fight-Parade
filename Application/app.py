@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for
 from testing.testing import Message, Stats, StatItem, Item, ShopItem
-from models.extensions import app
+from models.models import *
+from models.extensions import app, db
 
 @app.route("/")
 def index():
@@ -78,7 +79,9 @@ def load_items():
         items = [ShopItem(*line.strip().split(" ")) for line in fp.readlines()]
 
     return items
-    
+
+with app.app_context():
+    db.create_all()
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=20000, debug=True)

@@ -21,16 +21,24 @@ class Character(db.Model):
 class Fighter(Character):
     """This is the Player class that players will use to navigate through the game"""
 
-    id = db.Column(db.Integer, db.ForeignKey('Character.id'), primary_key=True)
+    id = db.Column(db.Integer, db.ForeignKey('character.id'), primary_key=True)
     paradians = db.Column(db.Integer)
     inventory = db.Column(db.String(100))
+
+    # __mapper_args__ = {
+    #     'polymorphic_identity': 'fighter',
+    # }
 
 class Enemy(Character):
     """THis is the Enemy class that will represent foes in the game"""
 
-    id = db.Column(db.Integer, db.ForeignKey("Character.id"), primary_key=True)
+    id = db.Column(db.Integer, db.ForeignKey("character.id"), primary_key=True)
     entry_message = db.Column(db.String(200))
     attack_message = db.Column(db.String(200))
     xp_yield = db.Column(db.Integer)
     coin_yield = db.Column(db.Integer)
     item = db.Column(db.String(10))
+
+    # __mapper_args__ = {
+    #     'polymorphic_identity': 'enemy',
+    # }
