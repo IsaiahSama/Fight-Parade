@@ -64,3 +64,41 @@ class ShopItem:
         self.price = price
         self.type = type_
         self.img = "https://api.dicebear.com/6.x/icons/svg?seed="+name
+
+
+# Loader Functions
+def load_messages():
+    with open("./testing/OldClass/chatTest.txt") as fp:
+        lines = fp.readlines()
+
+    messages = []
+    for line in lines:
+        data = line.split(" ")
+        messages.append(Message(data[0], data[1], " ".join(data[2:])))
+
+    return messages
+
+def load_stats():
+    with open("./testing/OldClass/statTest.txt") as fp:
+        statline = fp.read()
+
+    args = statline.split(" ")
+    stats = Stats(*args)
+    return stats
+
+def load_upgrades():
+    with open("./testing/OldClass/upgradeTest.txt") as fp:
+        stats = [StatItem(*line.strip().split(" ")) for line in fp.readlines()]
+    return stats
+
+def load_inventory():
+    with open("./testing/OldClass/inventoryTest.txt") as fp:
+        items = [Item(*line.strip().split(" ")) for line in fp.readlines()]
+
+    return items
+
+def load_items():
+    with open("./testing/OldClass/shopTest.txt") as fp:
+        items = [ShopItem(*line.strip().split(" ")) for line in fp.readlines()]
+
+    return items

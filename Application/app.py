@@ -1,7 +1,13 @@
 from flask import Flask, render_template, url_for
-from testing.testing import Message, Stats, StatItem, Item, ShopItem
+from testing.OldClass.testing import Message, Stats, StatItem, Item, ShopItem
 from models.models import *
-from models.extensions import app, db
+from models.extensions import db
+
+from testing.OldClass.testing import *
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///project.db"
+db.init_app(app)
 
 @app.route("/")
 def index():
@@ -44,41 +50,7 @@ def get_shop(type_=""):
 
     return render_template(page, tier=tier, pcoins=pcoins, level=level, items=items)
 
-def load_messages():
-    with open("./testing/chatTest.txt") as fp:
-        lines = fp.readlines()
 
-    messages = []
-    for line in lines:
-        data = line.split(" ")
-        messages.append(Message(data[0], data[1], " ".join(data[2:])))
-
-    return messages
-
-def load_stats():
-    with open("./testing/statTest.txt") as fp:
-        statline = fp.read()
-
-    args = statline.split(" ")
-    stats = Stats(*args)
-    return stats
-
-def load_upgrades():
-    with open("./testing/upgradeTest.txt") as fp:
-        stats = [StatItem(*line.strip().split(" ")) for line in fp.readlines()]
-    return stats
-
-def load_inventory():
-    with open("./testing/inventoryTest.txt") as fp:
-        items = [Item(*line.strip().split(" ")) for line in fp.readlines()]
-
-    return items
-
-def load_items():
-    with open("./testing/shopTest.txt") as fp:
-        items = [ShopItem(*line.strip().split(" ")) for line in fp.readlines()]
-
-    return items
 
 with app.app_context():
     db.create_all()
