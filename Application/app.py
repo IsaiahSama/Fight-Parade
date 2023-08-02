@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for
 from testing.OldClass.testing import Message, Stats, StatItem, Item, ShopItem
 from models.models import *
 from models.extensions import db
+from modelTesting import create_models
 
 from testing.OldClass.testing import *
 
@@ -56,4 +57,5 @@ with app.app_context():
     db.create_all()
 
 if __name__ == "__main__":
+    create_models()
     app.run(host='0.0.0.0', port=20000, debug=True)
