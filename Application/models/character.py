@@ -32,29 +32,29 @@ class Character(db.Model):
       <p>Name: {self.name}</p>
       <progress
         class="progress is-primary"
-        value="{self.exp}"
-        max="{self.max_exp}"
+        value="{self.stats.exp}"
+        max="{self.stats.max_exp}"
       >
-        {round((self.exp / self.max_exp) * 100, 2)}%
+        {round((self.stats.exp / self.stats.max_exp) * 100, 2)}%
       </progress>
       <div id="levelInfo">
-        <p>Exp: { self.exp }/{ self.max_exp }</p>
-        <span>Level { self.level }</span>
+        <p>Exp: { self.stats.exp }/{ self.stats.max_exp }</p>
+        <span>Level { self.stats.level }</span>
       </div>
     </div>
   </div>
   <hr />
   <div id="profileBody" class="columns">
     <div id="profileColumn1" class="column">
-      <p>Health: { self.health } / { self.health }</p>
-      <p>Power: { self.power }</p>
-      <p>Crit Chance: { self.crit_chance }%</p>
+      <p>Health: { self.stats.health } / { self.stats.base_health }</p>
+      <p>Power: { self.stats.power }</p>
+      <p>Crit Chance: { self.stats.crit_chance }%</p>
       <p>Ability: { getattr(self.ability, 'name', None)}</p>
     </div>
     <div id="profileColumn2" class="column">
-      <p>Tier { self.tier }</p>
-      <p>Defense: { self.defense }</p>
-      <p>Heal Chance: { self.heal_chance }%</p>
+      <p>Tier { self.stats.tier }</p>
+      <p>Defense: { self.stats.defense }</p>
+      <p>Heal Chance: { self.stats.heal_chance }%</p>
       <p>Passive: { getattr(self.passive, 'name', None)}</p>
     </div>
   </div>
