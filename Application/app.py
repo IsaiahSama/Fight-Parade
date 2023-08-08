@@ -62,6 +62,14 @@ def add_user():
     db.session.commit()
     return {"Status": "success"}
 
+@app.route("/add/stats/", methods=["POST"])
+def add_stats():
+    data = loads(request.json)
+    stats = Stats(**data)
+    db.session.add(stats)
+    db.session.commit()
+    return {"Status": "success"}
+
 @app.route("/add/enemy/", methods=["POST"])
 def add_enemy():
     data = loads(request.json)
