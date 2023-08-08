@@ -1,6 +1,8 @@
 """In this file, we will test creating models!"""
 from requests import post
 from json import dumps
+from models.extensions import db
+from models.models import *
 
 base = "./testing/Model/"
 URL = "http://127.0.0.1:20000/add/"
@@ -53,6 +55,15 @@ def create_models():
     make_request("weapon", weapons)
     make_request("armour", armours)
     make_request("ability", abilities)
+
+def load_stats() -> Fighter:
+    stats = db.session.execute(db.select(Fighter)).fetchone()
+    
+    if stats:
+        return stats[0]
+    else: 
+        return None
+    
 
 if __name__ == "__main__":
     create_models()

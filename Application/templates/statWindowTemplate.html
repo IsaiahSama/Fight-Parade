@@ -1,49 +1,6 @@
 <div id="statTitle">
   <center>Stat Window</center>
 </div>
-{% if stats %}
-<div id="profileData">
-  <div id="profileHeader" class="columns">
-    <div id="headerImage" class="column">
-      <img
-        src="https://avatars.dicebear.com/api/human/{{stats.name}}.svg"
-        alt=""
-        height="80px"
-        width="80px"
-      />
-    </div>
-    <div id="headerData" class="column is-three-quarters">
-      <p>Name: {{stats.name}}</p>
-      <progress
-        class="progress is-primary"
-        value="{{stats.exp}}"
-        max="{{stats.max_exp}}"
-      >
-        {{stats.per_exp}}%
-      </progress>
-      <div id="levelInfo">
-        <p>Exp: {{ stats.exp }}/{{ stats.max_exp }}</p>
-        <span>Level {{ stats.level }}</span>
-      </div>
-    </div>
-  </div>
-  <hr />
-  <div id="profileBody" class="columns">
-    <div id="profileColumn1" class="column">
-      <p>Health: {{ stats.health }} / {{ stats.max_health }}</p>
-      <p>Power: {{ stats.power }}</p>
-      <p>Crit Chance: {{ stats.crit_chance }}%</p>
-      <p>Ability: {{ stats.ability }}</p>
-    </div>
-    <div id="profileColumn2" class="column">
-      <p>Tier {{ stats.tier }}</p>
-      <p>Defense: {{ stats.defense }}</p>
-      <p>Heal Chance: {{ stats.heal_chance }}%</p>
-      <p>Passive: {{ stats.passive }}</p>
-    </div>
-  </div>
-</div>
-
-{% else %}
+{% if stats %} {{stats|safe}} {% else %}
 <p>No data loaded.</p>
 {% endif %}

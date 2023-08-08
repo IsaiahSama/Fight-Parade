@@ -1,2 +1,2 @@
-id name level exp max_exp health power heal_chance crit_chance weapon_id armour_id ability_id passive_id tier paradians inventory
-3156322326 James 75 35 60 520 80 22 35 320001 520001 710003 -1 2 37903 -1
+id name level exp max_exp health power defense heal_chance crit_chance weapon_id armour_id ability_id passive_id tier paradians inventory
+3156322326 James 75 35 60 520 80 20 22 35 320001 520001 710003 -1 2 37903 -1

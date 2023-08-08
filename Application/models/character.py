@@ -11,6 +11,7 @@ class Character(db.Model):
     max_exp = db.Column(db.Integer)
     health = db.Column(db.Integer)
     power = db.Column(db.Integer)
+    defense = db.Column(db.Integer)
     heal_chance = db.Column(db.Integer)
     crit_chance = db.Column(db.Integer)
     weapon_id = db.Column(db.Integer, db.ForeignKey("weapon.id"))
@@ -23,7 +24,48 @@ class Character(db.Model):
     ability = db.relationship("Ability", foreign_keys=[ability_id], backref='character', lazy=True)
     passive = db.relationship("Passive", foreign_keys=[passive_id], backref='character', lazy=True)
 
-
+    def __str__(self):
+        return f"""<div id="profileData">
+  <div id="profileHeader" class="columns">
+    <div id="headerImage" class="column">
+      <img
+        src="https://avatars.dicebear.com/api/human/{self.name}.svg"
+        alt=""
+        height="80px"
+        width="80px"
+      />
+    </div>
+    <div id="headerData" class="column is-three-quarters">
+      <p>Name: {self.name}</p>
+      <progress
+        class="progress is-primary"
+        value="{self.exp}"
+        max="{self.max_exp}"
+      >
+        {round((self.exp / self.max_exp) * 100, 2)}%
+      </progress>
+      <div id="levelInfo">
+        <p>Exp: { self.exp }/{ self.max_exp }</p>
+        <span>Level { self.level }</span>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div id="profileBody" class="columns">
+    <div id="profileColumn1" class="column">
+      <p>Health: { self.health } / { self.health }</p>
+      <p>Power: { self.power }</p>
+      <p>Crit Chance: { self.crit_chance }%</p>
+      <p>Ability: { getattr(self.ability, 'name', None)}</p>
+    </div>
+    <div id="profileColumn2" class="column">
+      <p>Tier { self.tier }</p>
+      <p>Defense: { self.defense }</p>
+      <p>Heal Chance: { self.heal_chance }%</p>
+      <p>Passive: { getattr(self.passive, 'name', None)}</p>
+    </div>
+  </div>
+</div>"""
 
 
 class Fighter(Character):

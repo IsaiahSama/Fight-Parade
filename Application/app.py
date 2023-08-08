@@ -2,10 +2,10 @@ from flask import Flask, render_template, url_for, request
 from testing.OldClass.testing import Message, Stats, StatItem, Item, ShopItem
 from models.models import *
 from models.extensions import db
-from modelTesting import create_models
 from json import loads
 
 from testing.OldClass.testing import *
+from modelTesting import *
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///project.db"
@@ -15,6 +15,7 @@ db.init_app(app)
 def index():
     return render_template("index.html")
 
+# Getters
 @app.route("/get/chat/")
 def get_chat():
     messages = load_messages()
@@ -34,7 +35,7 @@ def get_upgrades():
 @app.route("/get/inventory/")
 def get_inventory():
     stats = load_stats()
-    tier, pcoins = stats.tier, stats.pcoins
+    tier, pcoins = stats.tier, stats.paradians
     items = load_inventory()
     return render_template("inventoryWindowTemplate.html", items=items, tier=tier, pcoins=pcoins)
 
@@ -42,7 +43,7 @@ def get_inventory():
 @app.route("/get/shop/<string:type_>/")
 def get_shop(type_=""):
     stats = load_stats()
-    tier, pcoins, level = stats.tier, stats.pcoins, stats.level
+    tier, pcoins, level = stats.tier, stats.paradians, stats.level
     items = load_items()
 
     if type_:
@@ -52,6 +53,7 @@ def get_shop(type_=""):
 
     return render_template(page, tier=tier, pcoins=pcoins, level=level, items=items)
 
+# Adding
 @app.route("/add/user/", methods=["POST"])
 def add_user():
     data = loads(request.json)
