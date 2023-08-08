@@ -29,7 +29,10 @@ class Character(db.Model):
       />
     </div>
     <div id="headerData" class="column is-three-quarters">
-      <p>Name: {self.name}</p>
+      <div class='columns'>
+        <span class='column'>Name: {self.name}</span>
+        <span class='column'>PCoins: { self.stats.pcoins }₱</span>
+      </div>
       <progress
         class="progress is-primary"
         value="{self.stats.exp}"
@@ -38,7 +41,8 @@ class Character(db.Model):
         {round((self.stats.exp / self.stats.max_exp) * 100, 2)}%
       </progress>
       <div id="levelInfo">
-        <p>Exp: { self.stats.exp }/{ self.stats.max_exp }</p>
+        <span>Exp: { self.stats.exp }/{ self.stats.max_exp }</span>
+        
         <span>Level { self.stats.level }</span>
       </div>
     </div>
