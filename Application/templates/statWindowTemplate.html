@@ -1,6 +1,6 @@
 <div id="statTitle">
   <center>Stat Window</center>
 </div>
-{% if stats %} {{stats|safe}} {% else %}
+{% if stats %} {{stats.get_str()|safe}} {% else %}
 <p>No data loaded.</p>
 {% endif %}

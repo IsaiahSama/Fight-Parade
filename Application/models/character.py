@@ -24,7 +24,7 @@ class Character(db.Model):
     ability = db.relationship("Ability", foreign_keys=[ability_id], backref='character', lazy=True)
     passive = db.relationship("Passive", foreign_keys=[passive_id], backref='character', lazy=True)
 
-    def __str__(self):
+    def get_str(self):
         return f"""<div id="profileData">
   <div id="profileHeader" class="columns">
     <div id="headerImage" class="column">
