@@ -4,8 +4,8 @@ Character are the base model for all Characters, including Player, enemies, and 
 
 The attributes for Characters are:
 
-- name
 - id
+- name
 - level
 - health
 - power
@@ -34,9 +34,9 @@ Unique attributes for enemies are:
 
 - entry message
 - attack_message
-- xp_yield
 - paradians_yield
 - item
+  ~- xp_yield~
 
 ### Entry message
 
@@ -49,6 +49,8 @@ This is the message displayed when the enemy attacks. Will change if the enemy i
 ### Yields
 
 When defeated, enemies will grant the player exp and paradians.
+
+Update: Exp yield will now just yield the exp points
 
 ### Item
 

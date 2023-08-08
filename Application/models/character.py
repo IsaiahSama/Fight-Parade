@@ -6,19 +6,12 @@ class Character(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30))
-    level = db.Column(db.Integer)
-    exp = db.Column(db.Integer)
-    max_exp = db.Column(db.Integer)
-    health = db.Column(db.Integer)
-    power = db.Column(db.Integer)
-    defense = db.Column(db.Integer)
-    heal_chance = db.Column(db.Integer)
-    crit_chance = db.Column(db.Integer)
+    stats_id = db.Column(db.Integer, db.ForeignKey('stats.id'))
     weapon_id = db.Column(db.Integer, db.ForeignKey("weapon.id"))
     armour_id = db.Column(db.Integer, db.ForeignKey("armour.id"))
     ability_id = db.Column(db.Integer, db.ForeignKey("ability.id"))
     passive_id = db.Column(db.Integer, db.ForeignKey("passive.id"))
-    tier = db.Column(db.Integer)
+    stats = db.relationship("Stats", foreign_keys=[stats_id], backref='character')
     weapon = db.relationship("Weapon", foreign_keys=[weapon_id], backref='character', lazy=True)
     armour = db.relationship("Armour", foreign_keys=[armour_id], backref='character', lazy=True)
     ability = db.relationship("Ability", foreign_keys=[ability_id], backref='character', lazy=True)
@@ -72,7 +65,6 @@ class Fighter(Character):
     """This is the Player class that players will use to navigate through the game"""
 
     id = db.Column(db.Integer, db.ForeignKey('character.id'), primary_key=True)
-    paradians = db.Column(db.Integer)
     inventory = db.Column(db.String(100))
 
 class Enemy(Character):
@@ -81,6 +73,4 @@ class Enemy(Character):
     id = db.Column(db.Integer, db.ForeignKey("character.id"), primary_key=True)
     entry_message = db.Column(db.String(200))
     attack_message = db.Column(db.String(200))
-    xp_yield = db.Column(db.Integer)
-    coin_yield = db.Column(db.Integer)
     item = db.Column(db.String(10))

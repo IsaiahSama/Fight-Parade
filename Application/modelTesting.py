@@ -45,6 +45,7 @@ def create_models():
     # Getting the info
     fighters = get_info("fighters")
     enemies = get_info('enemies')
+    stats = get_info("stats")
     weapons = get_info("weapons")
     armours = get_info("armours")
     abilities = get_info("abilities")
@@ -55,6 +56,7 @@ def create_models():
     make_request("weapon", weapons)
     make_request("armour", armours)
     make_request("ability", abilities)
+    make_request('stats', stats)
 
 def load_stats() -> Fighter:
     stats = db.session.execute(db.select(Fighter)).fetchone()
