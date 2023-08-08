@@ -7,6 +7,8 @@ class Character(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30))
     level = db.Column(db.Integer)
+    exp = db.Column(db.Integer)
+    max_exp = db.Column(db.Integer)
     health = db.Column(db.Integer)
     power = db.Column(db.Integer)
     heal_chance = db.Column(db.Integer)
@@ -20,6 +22,8 @@ class Character(db.Model):
     armour = db.relationship("Armour", foreign_keys=[armour_id], backref='character', lazy=True)
     ability = db.relationship("Ability", foreign_keys=[ability_id], backref='character', lazy=True)
     passive = db.relationship("Passive", foreign_keys=[passive_id], backref='character', lazy=True)
+
+
 
 
 class Fighter(Character):
