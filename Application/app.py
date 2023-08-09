@@ -44,10 +44,7 @@ def get_inventory():
 def get_shop(type_=""):
     stats = load_stats().stats
     tier, pcoins, level = stats.tier, stats.pcoins, stats.level
-    items = load_items()
-
-    if type_:
-        items = list(filter(lambda x: x.type == type_, items))
+    items = load_items() if not type_ else load_items(type_)
 
     page = "shopWindowTemplate.html" if not type_ else "shopItemsTemplate.html"
 
@@ -86,11 +83,13 @@ item_types = {
     "armour": Armour
 }
 
+img_base_url = "https://api.dicebear.com/6.x/icons/svg?seed={0}"
+
 @app.route('/add/item/', methods=["POST"])
 def add_item():
     data:BaseItem = loads(request.json)
     item_type = data["item_type"]
-
+    data["img_url"] = img_base_url.format(data['name'])
     item = item_types[item_type](**data)
     db.session.add(item)
     db.session.commit()

@@ -1,2 +1,2 @@
 id name description tooltip effect cost tier reborn item_type
-520001 Paladium Armour_made_from_a_precious_ore increases_life_regen 10% 19000 2 0 armour
+520001 Paladium Armour_made_from_a_precious_ore Increases_life_regen 10% 19000 2 0 armour

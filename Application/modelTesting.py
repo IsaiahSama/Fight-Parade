@@ -70,6 +70,20 @@ def load_stats() -> Fighter:
     else: 
         return None
     
+def load_items(item_type="") -> BaseItem | None:
+    if item_type:
+        if item_type == "skill":
+            abils = db.session.execute(db.select(BaseItem).filter_by(item_type="ability")).fetchall()
+            passis = db.session.execute(db.select(BaseItem).filter_by(item_type='passive')).fetchall()
+            items = [*abils, *passis]
+        else:
+            items = db.session.execute(db.select(BaseItem).filter_by(item_type=item_type.lower())).fetchall()
+    else:
+        items = db.session.execute(db.select(BaseItem)).fetchall()
+
+    if items: return [item[0] for item in items]
+    else: return None
+    
 
 if __name__ == "__main__":
     create_models()

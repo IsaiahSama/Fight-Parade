@@ -1,4 +1,4 @@
 id name description tooltip effect cost tier reborn item_type
-1001 Gummy_Bear w_description_for_w_item w_tooltip_i_hope w_effect_here 3000 1 0 item
-1002 Purple_Potion w_description_for_w_item w_tooltip_i_hope w_effect_here 3000 2 0 item
+1001 Gummy_Bear A_tasty_item_that_grants_health Yummy._Increases_health_by_15 w_effect_here 3000 1 0 item
+1002 Purple_Potion Purple_is_the_color_of_yummies A_strange_concoction._Increases_crit_chance_by_20_for_3_battles w_effect_here 3000 2 0 item
 3213 Special_Item w_description_for_w_item w_tooltip_i_hope w_effect_here 3000 5 2 item
