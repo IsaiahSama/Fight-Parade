@@ -23,27 +23,27 @@ def get_chat():
 
 @app.route("/get/stats/")
 def get_stats():
-    stats = load_stats()
+    stats = load_stats().stats
     return render_template("statWindowTemplate.html", stats=stats)
 
 @app.route("/get/upgrades/")
 def get_upgrades():
-    stats = load_stats()
+    stats = load_stats().stats
     upgradables = load_upgrades()
     return render_template("upgradeWindowTemplate.html", stats=stats, stat_items=upgradables)
 
 @app.route("/get/inventory/")
 def get_inventory():
-    stats = load_stats()
-    tier, pcoins = stats.tier, stats.paradians
+    stats = load_stats().stats
+    tier, pcoins = stats.tier, stats.pcoins
     items = load_inventory()
     return render_template("inventoryWindowTemplate.html", items=items, tier=tier, pcoins=pcoins)
 
 @app.route("/get/shop/")
 @app.route("/get/shop/<string:type_>/")
 def get_shop(type_=""):
-    stats = load_stats()
-    tier, pcoins, level = stats.tier, stats.paradians, stats.level
+    stats = load_stats().stats
+    tier, pcoins, level = stats.tier, stats.pcoins, stats.level
     items = load_items()
 
     if type_:
@@ -78,29 +78,25 @@ def add_enemy():
     db.session.commit()
     return {"Status": "success"}
 
-@app.route("/add/weapon/", methods=["POST"])
-def add_weapon():
-    data = loads(request.json)
-    weapon = Weapon(**data)
-    db.session.add(weapon)
+item_types = {
+    "ability": Ability,
+    "passive": Passive,
+    "item": Item,
+    "weapon": Weapon,
+    "armour": Armour
+}
+
+@app.route('/add/item/', methods=["POST"])
+def add_item():
+    data:BaseItem = loads(request.json)
+    item_type = data["item_type"]
+
+    item = item_types[item_type](**data)
+    db.session.add(item)
     db.session.commit()
+
     return {"Status": "success"}
 
-@app.route("/add/armour/", methods=["POST"])
-def add_armour():
-    data = loads(request.json)
-    armour = Armour(**data)
-    db.session.add(armour)
-    db.session.commit()
-    return {"Status": "success"}
-
-@app.route("/add/ability/", methods=["POST"])
-def add_ability():
-    data = loads(request.json)
-    ability = Ability(**data)
-    db.session.add(ability)
-    db.session.commit()
-    return {"Status": "success"}
 
 with app.app_context():
     db.create_all()

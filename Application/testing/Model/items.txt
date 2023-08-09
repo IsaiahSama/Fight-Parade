@@ -1,1 +1,4 @@
-id name description tooltip effect cost tier reborn
+id name description tooltip effect cost tier reborn item_type
+1001 Gummy_Bear w_description_for_w_item w_tooltip_i_hope w_effect_here 3000 1 0 item
+1002 Purple_Potion w_description_for_w_item w_tooltip_i_hope w_effect_here 3000 2 0 item
+3213 Special_Item w_description_for_w_item w_tooltip_i_hope w_effect_here 3000 5 2 item

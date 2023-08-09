@@ -46,6 +46,7 @@ def create_models():
     fighters = get_info("fighters")
     enemies = get_info('enemies')
     stats = get_info("stats")
+    items = get_info("items")
     weapons = get_info("weapons")
     armours = get_info("armours")
     abilities = get_info("abilities")
@@ -53,10 +54,13 @@ def create_models():
 
     # Making the requests to update for fighter
     make_request("user", fighters)
-    make_request("weapon", weapons)
-    make_request("armour", armours)
-    make_request("ability", abilities)
+    make_request('enemy', enemies)
     make_request('stats', stats)
+    make_request("item", items)
+    make_request("item", weapons)
+    make_request("item", armours)
+    make_request("item", abilities)
+    make_request('item', passives)
 
 def load_stats() -> Fighter:
     stats = db.session.execute(db.select(Fighter)).fetchone()

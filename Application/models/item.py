@@ -12,6 +12,7 @@ class BaseItem(db.Model):
     cost = db.Column(db.Integer)
     tier = db.Column(db.Integer)
     reborn = db.Column(db.Integer)
+    item_type = db.Column(db.String(30))
 
 class Item(BaseItem):
     """Class used to rerpresent consumable items"""
