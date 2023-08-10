@@ -16,7 +16,7 @@ class BaseItem(db.Model):
     img_url = db.Column(db.String(100))
 
 
-    def get_str(self):
+    def get_html(self):
         return f"""<div class="itemCard card">
   <div class="card-image">
     <center>
