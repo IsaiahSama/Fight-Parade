@@ -14,6 +14,7 @@
     class="button is-dark"
     hx-get="/get/shop/armour/"
     hx-target="#shopItems"
+    hx-swap="innerHTML transition:true"
   >
     Armour
   </button>
@@ -21,6 +22,7 @@
     class="button is-dark"
     hx-get="/get/shop/weapon/"
     hx-target="#shopItems"
+    hx-swap="innerHTML transition:true"
   >
     Weapons
   </button>
@@ -28,6 +30,7 @@
     class="button is-dark"
     hx-get="/get/shop/item/"
     hx-target="#shopItems"
+    hx-swap="innerHTML transition:true"
   >
     Items
   </button>
@@ -35,6 +38,7 @@
     class="button is-dark"
     hx-get="/get/shop/skill/"
     hx-target="#shopItems"
+    hx-swap="innerHTML transition:true"
   >
     Skills
   </button>
@@ -48,7 +52,9 @@
 <hr />
 
 {% if items %}
-<div id="shopItems">Select the type of item you want to buy above.</div>
+<div id="shopItems" class="slide-up">
+  Select the type of item you want to buy above.
+</div>
 {% else %}
 <p>Apologies, the shop is currently empty.</p>
 {% endif %}
