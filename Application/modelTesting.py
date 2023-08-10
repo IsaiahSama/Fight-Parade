@@ -83,7 +83,16 @@ def load_items(item_type="") -> BaseItem | None:
 
     if items: return [item[0] for item in items]
     else: return None
-    
+
+def load_inventory(item_str:str) -> Item:
+    print(item_str)
+    if not item_str: return []
+    item_ids = [int(item_id.strip()) for item_id in item_str.rstrip(',').split(",")]
+
+    items = [db.session.execute(db.select(Item).filter_by(id=item_id)).fetchone() for item_id in item_ids]
+
+    # inventory = [Item(**item[0]) for item in items]
+    return [item[0] for item in items]
 
 if __name__ == "__main__":
     create_models()

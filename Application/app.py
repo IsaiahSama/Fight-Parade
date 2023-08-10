@@ -34,9 +34,10 @@ def get_upgrades():
 
 @app.route("/get/inventory/")
 def get_inventory():
-    stats = load_stats().stats
+    player = load_stats()
+    stats = player.stats
     tier, pcoins = stats.tier, stats.pcoins
-    items = load_inventory()
+    items = load_inventory(player.inventory)
     return render_template("inventoryWindowTemplate.html", items=items, tier=tier, pcoins=pcoins)
 
 @app.route("/get/shop/")

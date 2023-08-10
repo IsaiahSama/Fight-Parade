@@ -16,7 +16,7 @@
   <p>Paradians: {{ pcoins }}₱</p>
 </div>
 <div id="inventoryItems" class="generalGrid">
-  {% for item in items %} {{ item|safe }} {% endfor %}
+  {% for item in items %} {{ item.get_html()|safe }} {% endfor %}
 </div>
 {% else %}
 <p>Your inventory is empty</p>
