@@ -47,3 +47,9 @@ As an RPG experience, stats are the cornerstone to knowing how strong everything
 ## Upgrades
 
 Upgrades are for the Player's stats. All of the stats listed under Player above are upgradable, increasing their amount in exchange for Paradian with a max cap per tier (except for level and exp).
+
+## "Hidden Values"
+
+Crit damage is calculated as + 15% of total damage (this includes any buff and weapons). As crit chance is increased, crit damage also scales from 15% up to a maximum of 35%.
+
+Amount healed from heal chance is calculated as 3% of max health. As heal_chance is increased, the amount healed scales from 3% up to a maximum of 10% of max health.
