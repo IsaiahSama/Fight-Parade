@@ -91,7 +91,6 @@ def load_inventory(item_str:str) -> Item:
 
     items = [db.session.execute(db.select(Item).filter_by(id=item_id)).fetchone() for item_id in item_ids]
 
-    # inventory = [Item(**item[0]) for item in items]
     return [item[0] for item in items]
 
 if __name__ == "__main__":

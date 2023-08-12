@@ -23,7 +23,7 @@ def get_chat():
 
 @app.route("/get/stats/")
 def get_stats():
-    stats = load_stats().stats
+    stats = load_stats()
     return render_template("statWindowTemplate.html", stats=stats)
 
 @app.route("/get/upgrades/")
