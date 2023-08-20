@@ -29,10 +29,13 @@ class Character(db.Model):
       />
     </div>
     <div id="headerData" class="column is-three-quarters">
-      <div class='columns'>
-        <span class='column'>Name: {self.name}</span>
-        <span class='column'>PCoins: { self.stats.pcoins }₱</span>
+      <div>
+        <p>Name: {self.name}</p>
+        <p>Paradians: { self.stats.pcoins }₱</p>
       </div>
+    </div>
+  </div>
+  <div>
       <progress
         class="progress is-primary"
         value="{self.stats.exp}"
@@ -46,19 +49,18 @@ class Character(db.Model):
         <span>Level { self.stats.level }</span>
       </div>
     </div>
-  </div>
   <hr />
   <div id="profileBody" class="columns">
     <div id="profileColumn1" class="column">
+      <p>Tier { self.stats.tier }</p>
       <p>Health: { self.stats.health } / { self.stats.base_health }</p>
       <p>Power: { self.stats.power }</p>
-      <p>Crit Chance: { self.stats.crit_chance }%</p>
-      <p>Ability: { getattr(self.ability, 'name', None)}</p>
+      <p>Defense: { self.stats.defense }</p>
     </div>
     <div id="profileColumn2" class="column">
-      <p>Tier { self.stats.tier }</p>
-      <p>Defense: { self.stats.defense }</p>
+      <p>Crit Chance: { self.stats.crit_chance }%</p>
       <p>Heal Chance: { self.stats.heal_chance }%</p>
+      <p>Ability: { getattr(self.ability, 'name', None)}</p>
       <p>Passive: { getattr(self.passive, 'name', None)}</p>
     </div>
   </div>

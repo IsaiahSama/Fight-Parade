@@ -2,16 +2,15 @@
   <center>Shop Window</center>
 </div>
 
-<div id="shopInfo">
+<div id="shopInfo" class="info">
   <ul style="list-style-type: disc">
     <li>Here you can buy various items to help you in your adventure.</li>
-    <li>To buy an item, use the !buy item_id command</li>
-    <li>To get more information on an item, use the !info item_id command</li>
+    <li>Click on the item you want to buy.</li>
   </ul>
 </div>
-<div id="shopButtonList" class="buttons" style="margin-top: 0.5em">
+<div id="shopButtonList">
   <button
-    class="button is-dark"
+    class="to-light"
     hx-get="/get/shop/armour/"
     hx-target="#shopItems"
     hx-swap="innerHTML transition:true"
@@ -19,7 +18,7 @@
     Armour
   </button>
   <button
-    class="button is-dark"
+    class="to-light"
     hx-get="/get/shop/weapon/"
     hx-target="#shopItems"
     hx-swap="innerHTML transition:true"
@@ -27,7 +26,7 @@
     Weapons
   </button>
   <button
-    class="button is-dark"
+    class="to-light"
     hx-get="/get/shop/item/"
     hx-target="#shopItems"
     hx-swap="innerHTML transition:true"
@@ -35,7 +34,7 @@
     Items
   </button>
   <button
-    class="button is-dark"
+    class="to-light"
     hx-get="/get/shop/skill/"
     hx-target="#shopItems"
     hx-swap="innerHTML transition:true"

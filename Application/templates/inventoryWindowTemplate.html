@@ -2,19 +2,18 @@
   <center>Inventory Window</center>
 </div>
 {% if items %}
-<div id="inventoryInfo">
+<div id="inventoryInfo" class="info">
   <ul style="list-style-type: disc">
     <li>You can get items for your inventory via Quests, Jobs or the Shop</li>
-    <li>To use an item, use the command !use item_id</li>
-    <li>To sell an item, use !sell item_id</li>
-    <li>To get info on an item, use !info item_id</li>
+    <li>To use an item, click it!</li>
+    <li>To sell an item, click and hold it</li>
   </ul>
 </div>
-<hr />
 <div id="inventoryHeader" class="statHeader">
   <p>Tier {{ tier }}</p>
   <p>Paradians: {{ pcoins }}₱</p>
 </div>
+<hr />
 <div id="inventoryItems" class="generalGrid">
   {% for item in items %} {{ item.get_html()|safe }} {% endfor %}
 </div>

@@ -2,26 +2,16 @@
   <center>Upgrade Window</center>
 </div>
 {% if stats %}
-<div id="upgradeInfo">
+<div id="upgradeInfo" class="info">
   <ul style="list-style-type: disc">
-    <li>To upgrade a stat, you must first have enough Paradians.</li>
-    <li>You may then use the command `!upgrade stat_name`</li>
-    <li>This command will increase the stat by the upgrade amount</li>
-    <li>You may also use the `!upgrade stat_name max` command</li>
-    <li>This will upgrade a stat as much as it can based on your Paradians</li>
-    <li>You may also use `!upgrade stat_name amount` command</li>
-    <li>
-      This will increase the stat up to `amount` times (given you have enough
-      Paradians)
-    </li>
-    <li>Use !help upgrade for more information on upgrading.</li>
+    <li>To upgrade a stat, click it!.</li>
   </ul>
 </div>
-<hr />
 <div id="upgradeHeader" class="statHeader">
   <p>Level: {{ stats.level }}</p>
   <p>Paradians: {{ stats.pcoins }}₱</p>
 </div>
+<hr />
 <div id="upgradeStatList" class="generalGrid">
   {% for stat_item in stat_items %}
   <div class="upgradeStatCard card">
