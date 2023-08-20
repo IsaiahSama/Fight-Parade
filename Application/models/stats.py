@@ -20,3 +20,13 @@ class Stats(db.Model):
     base_crit = sa.Column(sa.Integer)
     heal_chance = sa.Column(sa.Integer)
     base_heal = sa.Column(sa.Integer)
+
+class Tier:
+    def __init__(self, max_level:int, max_health:int, max_power:int, max_defense:int, max_crit:int, max_heal:int):
+        self.max_level = max_level
+        self.max_health = max_health
+        self.max_power = max_power
+        self.max_defense = max_defense
+        self.max_crit = max_crit 
+        self.max_heal = max_heal
+

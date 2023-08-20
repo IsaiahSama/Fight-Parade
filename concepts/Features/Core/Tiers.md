@@ -25,3 +25,61 @@ Tier 5 - > Level 200
 Tier 6 - > Level 200 & > 10000 health
 
 As the game is developed further, the requirements for each tier, and the number of tiers are subject to change.
+
+## Tier Features
+
+Tiers also provide caps for stats. When I get around to implementing Classes, if I do that, then tiers will change a bit, however, for the base stats, tiers will adhere to the following rules.
+
+Tier 1:
+
+- Max Level: 50
+- Max Health:
+- Max Power:
+- Max Defense:
+- Max Crit chance:
+- Max Heal chance:
+
+Tier 2:
+
+- Max Level: 100
+- Max Health:
+- Max Power:
+- Max Defense:
+- Max Crit chance:
+- Max Heal chance:
+
+Tier 3:
+
+- Max Level: 200
+- Max Health:
+- Max Power:
+- Max Defense:
+- Max Crit chance:
+- Max Heal chance:
+
+Tier 4:
+
+- Max Level: 300
+- Max Health:
+- Max Power:
+- Max Defense:
+- Max Crit chance:
+- Max Heal chance:
+
+Tier 5:
+
+- Min Level: 300
+- Max Health:
+- Max Power:
+- Max Defense:
+- Max Crit chance:
+- Max Heal chance:
+
+Tier 6:
+
+- Min Level: 300
+- Min Health:
+- Min Power:
+- Min Defense:
+- Min Crit chance:
+- Min Heal chance:
