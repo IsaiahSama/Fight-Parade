@@ -25,9 +25,9 @@
         </div>
         <section id="actionButtonsSection">
           <div id="actionButtonsContainer">
-            <button id="questButton" class="to-light">Quest</button>
-            <button id="jobButton" class="to-light">Job</button>
-            <button id="trainButton" class="to-light">Train</button>
+            <button id="questButton" class="to-light inactive">Quest</button>
+            <button id="jobButton" class="to-light inactive">Job</button>
+            <button id="trainButton" class="to-light inactive">Train</button>
           </div>
         </section>
       </section>
@@ -76,5 +76,14 @@
         </section>
       </section>
     </section>
+
+    <script>
+      const inactiveNotice = (event) => {
+        alert("This features is not yet available.");
+      };
+      document.querySelectorAll(".inactive").forEach((element) => {
+        element.addEventListener("click", inactiveNotice);
+      });
+    </script>
   </body>
 </html>
