@@ -16,75 +16,64 @@
   </head>
   <body>
     <section id="centerSection" class="columns">
-      <section id="actionButtonsSection" class="column">
-        <div id="actionButtonsContainer" class="buttons">
-          <button id="questButton" class="button is-large is-dark">
-            Quest
-          </button>
-          <button id="jobButton" class="button is-large is-warning">Job</button>
-          <button id="trainButton" class="button is-large is-danger">
-            Train
-          </button>
-        </div>
-      </section>
-      <section id="chatWindowSection" class="column is-half">
+      <section id="chatWindowSection" class="column is-three-quarters">
         <div id="chatWindow" class="box">
           <div id="chatHeader">
             <center>Chat Window</center>
           </div>
           <div id="chatBody" hx-get="/get/chat/" hx-trigger="load"></div>
         </div>
-        <div id="inputDiv">
-          <input type="text" name="command" id="command" class="input" />
-          <!-- <button id="submitButton" class="button"></button> -->
-        </div>
+        <section id="actionButtonsSection">
+          <div id="actionButtonsContainer">
+            <button id="questButton">Quest</button>
+            <button id="jobButton">Job</button>
+            <button id="trainButton">Train</button>
+          </div>
+        </section>
       </section>
       <section id="generalSection" class="column">
         <div id="generalWindow" class="box slide-it">
           <center>General Window</center>
           <p>Get started by pressing the Profile button below</p>
         </div>
-      </section>
-    </section>
-    <hr />
-    <section id="bottomSection">
-      <section id="menuButtonsSection" class="buttons">
-        <button
-          id="shopButton"
-          class="button is-medium is-primary"
-          hx-get="/get/shop/"
-          hx-target="#generalWindow"
-          hx-swap="innerHTML transition:true"
-        >
-          Shop
-        </button>
-        <button
-          id="invButton"
-          class="button is-medium is-link"
-          hx-get="/get/inventory/"
-          hx-target="#generalWindow"
-          hx-swap="innerHTML transition:true"
-        >
-          Inventory
-        </button>
-        <button
-          id="upgradeButton"
-          class="button is-medium is-info"
-          hx-get="/get/upgrades/"
-          hx-target="#generalWindow"
-          hx-swap="innerHTML transition:true"
-        >
-          Upgrades
-        </button>
-        <button
-          id="profileButton"
-          class="button is-medium is-success"
-          hx-get="/get/stats/"
-          hx-target="#generalWindow"
-          hx-swap="innerHTML transition:true"
-        >
-          Profile
-        </button>
+        <section id="menuButtonsSection" class="buttons">
+          <button
+            id="shopButton"
+            class=""
+            hx-get="/get/shop/"
+            hx-target="#generalWindow"
+            hx-swap="innerHTML transition:true"
+          >
+            Shop
+          </button>
+          <button
+            id="invButton"
+            class=""
+            hx-get="/get/inventory/"
+            hx-target="#generalWindow"
+            hx-swap="innerHTML transition:true"
+          >
+            Inventory
+          </button>
+          <button
+            id="upgradeButton"
+            class=""
+            hx-get="/get/upgrades/"
+            hx-target="#generalWindow"
+            hx-swap="innerHTML transition:true"
+          >
+            Upgrades
+          </button>
+          <button
+            id="profileButton"
+            class=""
+            hx-get="/get/stats/"
+            hx-target="#generalWindow"
+            hx-swap="innerHTML transition:true"
+          >
+            Profile
+          </button>
+        </section>
       </section>
     </section>
   </body>
