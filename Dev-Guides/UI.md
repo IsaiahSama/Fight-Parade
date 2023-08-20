@@ -18,9 +18,10 @@ These options are currently:
 
 ## Chat Window
 
-This window is where messages will be displayed. As the game is a text-based game, text is the main way for the user to interact with the game.
+This window is where messages will be displayed. As the game is a text-based game, text is the main way information is displayed for the user.
 
-Right below the Chat Window, is an input field, where the player can input commands and messages.
+~Right below the Chat Window, is an input field, where the player can input commands and messages.~
+Input field has been removed in favor of buttons. Chatting will no longer be a feature.
 
 ## General Window
 
