@@ -76,6 +76,8 @@ section {
 
 #chatWindow {
   min-height: 65vh;
+  max-height: 80vh;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   background-color: #f9f9f9;
@@ -84,7 +86,7 @@ section {
 
 #chatBody {
   flex: 2 1 auto;
-  overflow-y: scroll;
+  font-size: small;
 }
 
 .systemMessage {

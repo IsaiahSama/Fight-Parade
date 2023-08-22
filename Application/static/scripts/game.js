@@ -1,3 +1,8 @@
+const chatWindow = document.getElementById("chatWindow");
+window.setInterval(function () {
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}, 500);
+
 const sendMessage = (sender, sender_name, content) => {
   data = {
     method: "POST",
@@ -18,7 +23,7 @@ const sendPlayerMessage = (content) => {
 };
 
 const sendSystemMessage = (content) => {
-  sendMessage("system", "system", content);
+  sendMessage("other", "system", content);
 };
 
 // Gaming Buttons
