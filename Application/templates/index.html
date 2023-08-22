@@ -28,6 +28,15 @@
             <button id="questButton" class="to-light inactive">Quest</button>
             <button id="jobButton" class="to-light inactive">Job</button>
             <button id="trainButton" class="to-light inactive">Train</button>
+            <button
+              id="enemyButton"
+              class="to-light"
+              hx-get="/get/enemy/"
+              hx-target="#generalWindow"
+              hx-swap="innrHTML transition:true"
+            >
+              Show Enemy
+            </button>
           </div>
         </section>
       </section>

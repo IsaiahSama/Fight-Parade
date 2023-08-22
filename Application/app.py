@@ -22,9 +22,9 @@ def get_chat():
     return render_template("chatBodyTemplate.html", messages=messages)
 
 @app.route("/get/stats/")
-def get_stats():
-    stats = load_stats()
-    return render_template("statWindowTemplate.html", stats=stats)
+def get_profile():
+    profile = load_stats()
+    return render_template("statWindowTemplate.html", stats=profile)
 
 @app.route("/get/upgrades/")
 def get_upgrades():
@@ -50,6 +50,11 @@ def get_shop(type_=""):
     page = "shopWindowTemplate.html" if not type_ else "shopItemsTemplate.html"
 
     return render_template(page, tier=tier, pcoins=pcoins, level=level, items=items)
+
+@app.route("/get/enemy/")
+def get_enemy():
+    enemy = load_enemy()
+    return render_template("statWindowTemplate.html", stats=enemy)
 
 # Adding
 @app.route("/add/user/", methods=["POST"])

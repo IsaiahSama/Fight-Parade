@@ -93,5 +93,13 @@ def load_inventory(item_str:str) -> Item:
 
     return [item[0] for item in items]
 
+def load_enemy() -> Enemy:
+    enemy = db.session.execute(db.select(Enemy)).fetchone()
+
+    if enemy:
+        return enemy[0]
+    return None
+
+
 if __name__ == "__main__":
     create_models()
