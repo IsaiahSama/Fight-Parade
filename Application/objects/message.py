@@ -34,6 +34,7 @@ message_html = {
 }
 
 class Message:
+    """This class represents a Message from either the Player, or The system"""
     def __init__(self, channel_id:int, sender:str, sender_name:str, content:str):
         self.channel_id = channel_id
         self.sender = sender
@@ -42,3 +43,4 @@ class Message:
 
     def get_html(self):
         return message_html[self.sender].format(content=self.content, sender_name=self.sender_name)
+    

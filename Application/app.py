@@ -1,11 +1,11 @@
 from flask import Flask, render_template, url_for, request
 from testing.OldClass.testing import Message, Stats, StatItem, Item, ShopItem
+from testing.OldClass.testing import *
 from models.models import *
 from models.extensions import db
 from objects.objects import *
 from json import loads
 
-from testing.OldClass.testing import *
 from modelTesting import *
 
 app = Flask(__name__)
