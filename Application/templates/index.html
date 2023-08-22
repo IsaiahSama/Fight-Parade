@@ -21,12 +21,14 @@
           <div id="chatHeader">
             <center>Chat Window</center>
           </div>
-          <div id="chatBody" hx-get="/get/chat/" hx-trigger="load"></div>
+          <div id="chatBody" hx-get="/get/message/" hx-swap="beforeend"></div>
         </div>
         <section id="actionButtonsSection">
           <div id="actionButtonsContainer">
             <button id="questButton" class="to-light inactive">Quest</button>
-            <button id="jobButton" class="to-light inactive">Job</button>
+            <button id="jobButton" class="to-light" onclick="doJob()">
+              Job
+            </button>
             <button id="trainButton" class="to-light inactive">Train</button>
             <button
               id="enemyButton"
@@ -94,5 +96,6 @@
         element.addEventListener("click", inactiveNotice);
       });
     </script>
+    <script src="{{ url_for('static', filename='scripts/game.js') }}"></script>
   </body>
 </html>
