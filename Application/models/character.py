@@ -37,7 +37,7 @@ class Character(db.Model):
   </div>
   <div>
       <progress
-        class="progress is-primary"
+        class="progress {'is-danger' if hasattr(self, 'item') else 'is-primary'}"
         value="{self.stats.exp}"
         max="{self.stats.max_exp}"
       >
