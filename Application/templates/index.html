@@ -21,7 +21,12 @@
           <div id="chatHeader">
             <center>Chat Window</center>
           </div>
-          <div id="chatBody" hx-get="/get/message/" hx-swap="beforeend"></div>
+          <div
+            id="chatBody"
+            hx-get="/get/message/"
+            hx-swap="beforeend"
+            hx-trigger="every 2s"
+          ></div>
         </div>
         <section id="actionButtonsSection">
           <div id="actionButtonsContainer">

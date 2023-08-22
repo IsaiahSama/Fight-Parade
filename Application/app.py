@@ -17,14 +17,10 @@ def index():
 
 # Getters
 all_messages:[Message] = [Message(1, "system", "system", "Welcome to Fight Parade")]
-@app.route("/get/chat/")
-def get_chat():
-    messages = all_messages if all_messages else load_messages()
-    return render_template("chatBodyTemplate.html", messages=messages)
 
 @app.route("/get/message/")
 def get_message():
-    if not all_messages: return None 
+    if not all_messages: return "" 
     return all_messages.pop(0).get_html()
 
 @app.route("/get/stats/")
@@ -121,14 +117,6 @@ def add_message():
     player:Character = load_stats()
     
     all_messages.append(Message(player.id, sender, sender_name, content))
-
-
-# Gaming
-@app.route("/job/")
-def job():
-    all_messages.append(Message(1, "player", "Timmy", "I want to take a job!"))
-    all_messages.append(Message(1, "system", "system", "So you want to work? Awesome!"))
-
     return {"Status": "Success"}
 
 with app.app_context():
