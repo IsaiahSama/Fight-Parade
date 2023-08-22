@@ -22,7 +22,7 @@ Tier 2 - < Level 100
 Tier 3 - < Level 150
 Tier 4 - < Level 200
 Tier 5 - > Level 200
-Tier 6 - > Level 200 & > 10000 health
+Tier 6 - > Level 200 & > 1000 health
 
 As the game is developed further, the requirements for each tier, and the number of tiers are subject to change.
 
@@ -33,53 +33,59 @@ Tiers also provide caps for stats. When I get around to implementing Classes, if
 Tier 1:
 
 - Max Level: 50
-- Max Health:
-- Max Power:
-- Max Defense:
-- Max Crit chance:
-- Max Heal chance:
+- Max Health: 100
+- Max Power: 20
+- Max Defense: 10
+- Max Crit chance: 5%
+- Max Heal chance: 10%
 
 Tier 2:
 
 - Max Level: 100
-- Max Health:
-- Max Power:
-- Max Defense:
-- Max Crit chance:
-- Max Heal chance:
+- Max Health: 200
+- Max Power: 40
+- Max Defense: 20
+- Max Crit chance: 7%
+- Max Heal chance: 12%
 
 Tier 3:
 
 - Max Level: 200
-- Max Health:
-- Max Power:
-- Max Defense:
-- Max Crit chance:
-- Max Heal chance:
+- Max Health: 400
+- Max Power: 80
+- Max Defense: 40
+- Max Crit chance: 10%
+- Max Heal chance: 15%
 
 Tier 4:
 
 - Max Level: 300
-- Max Health:
-- Max Power:
-- Max Defense:
-- Max Crit chance:
-- Max Heal chance:
+- Max Health: 800
+- Max Power: 160
+- Max Defense: 80
+- Max Crit chance: 15%
+- Max Heal chance: 18%
 
 Tier 5:
 
 - Min Level: 300
-- Max Health:
-- Max Power:
-- Max Defense:
-- Max Crit chance:
-- Max Heal chance:
+- Max Health: 1500
+- Max Power: 300
+- Max Defense: 150
+- Max Crit chance: 20%
+- Max Heal chance: 20%
 
 Tier 6:
 
 - Min Level: 300
-- Min Health:
-- Min Power:
-- Min Defense:
-- Min Crit chance:
-- Min Heal chance:
+- Min Health: 1000
+- Min Power: 500
+- Min Defense: 250
+- Min Crit chance: 25%
+- Min Heal chance: 25%
+
+## Reborn
+
+For characters that have been reborn, the caps and requirements shall be risen by base_stat_value + 1.3 x Reborn level
+
+All scaling is subject to change
