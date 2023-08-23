@@ -118,16 +118,21 @@ section {
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.fighter .playerMessageBody {
-  background-color: aquamarine;
-  min-width: 100%;
-}
-
 .fighter {
   margin-left: auto;
   min-width: 30%;
   width: fit-content;
   max-width: 70%;
+}
+
+.fighter .playerMessageBody {
+  background-color: aquamarine;
+  min-width: 100%;
+}
+
+.fighter .playerMessageHeader {
+  width: fit-content;
+  margin-left: auto;
 }
 
 /* General Window */
