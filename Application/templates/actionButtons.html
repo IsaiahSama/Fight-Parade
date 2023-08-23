@@ -1,16 +1,27 @@
-<div id="actionButtonsContainer">
-  <button id="questButton" class="to-light" onclick="doQuest()">Quest</button>
-  <button id="jobButton" class="to-light" onclick="doJob()">Job</button>
-  <button id="trainButton" class="to-light" onclick="doTraining()">
-    Train
-  </button>
-  <button
-    id="enemyButton"
-    class="to-light"
-    hx-get="/get/enemy/"
-    hx-target="#generalWindow"
-    hx-swap="innrHTML transition:true"
-  >
-    Show Enemy
-  </button>
-</div>
+{% if type == "action" %}
+<button
+  id="questButton"
+  class="to-light"
+  onclick="doQuest()"
+  hx-get="/get/buttons/quest/"
+  hx-target="#actionButtonsContainer"
+>
+  Quest
+</button>
+<button id="jobButton" class="to-light" onclick="doJob()">Job</button>
+<button id="trainButton" class="to-light" onclick="doTraining()">Train</button>
+
+{% elif type == "quest" %}
+<button id="attackButton" class="to-dark">Attack</button>
+<button id="defendButton" class="to-dark">Defend</button>
+<button id="abilityButton" class="to-dark">Ability</button>
+<button
+  id="enemyButton"
+  class="to-dark"
+  hx-get="/get/enemy/"
+  hx-target="#generalWindow"
+  hx-swap="innrHTML transition:true"
+>
+  Show Enemy
+</button>
+{% endif %}

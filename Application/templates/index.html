@@ -33,11 +33,13 @@
           </div>
           <div id="chatBody"></div>
         </div>
-        <section
-          id="actionButtonsSection"
-          hx-get="/get/buttons/action/"
-          hx-trigger="load"
-        ></section>
+        <section id="actionButtonsSection">
+          <div
+            id="actionButtonsContainer"
+            hx-get="/get/buttons/action/"
+            hx-trigger="load"
+          ></div>
+        </section>
       </section>
       <section id="generalSection" class="column">
         <div id="generalWindow" class="box slide-it">
