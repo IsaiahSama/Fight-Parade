@@ -7,9 +7,9 @@ The Core UI for the game is broken down into 4 sections.
 - Stat Window
 - General Options
 
-## Battle Options
+## Action Options
 
-Battle options are the battle related tasks that Players will have access to progress through the game.
+Action options are the action related tasks that Players will have access to progress through the game.
 These options are currently:
 
 - Quest
