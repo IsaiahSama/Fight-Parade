@@ -65,7 +65,7 @@
 }
 
 #chatBody > div {
-  animation: 360ms cubic-bezier(0.4, 0, 1, 1) both slide-up;
+  animation: 400ms cubic-bezier(0.4, 0, 1, 1) both slide-up;
 }
 
 /* Transition names and data */

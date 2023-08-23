@@ -1,16 +1,5 @@
-{% if type == "action" %}
-<button
-  id="questButton"
-  class="to-light"
-  onclick="doQuest()"
-  hx-get="/get/buttons/quest/"
-  hx-target="#actionButtonsContainer"
->
-  Quest
-</button>
-<button id="jobButton" class="to-light" onclick="doJob()">Job</button>
-<button id="trainButton" class="to-light" onclick="doTraining()">Train</button>
-
+{% if type == "job" %}
+<button class="to-dark">Absolutely nothing to see here.</button>
 {% elif type == "quest" %}
 <button id="attackButton" class="to-dark">Attack</button>
 <button id="defendButton" class="to-dark">Defend</button>
@@ -24,4 +13,25 @@
 >
   Show Enemy
 </button>
+
+{% else %}
+<button
+  id="questButton"
+  class="to-light"
+  onclick="doQuest()"
+  hx-get="/get/buttons/quest/"
+  hx-target="#actionButtonsContainer"
+>
+  Quest
+</button>
+<button
+  id="jobButton"
+  class="to-light"
+  onclick="doJob()"
+  hx-get="/get/buttons/job/"
+  hx-target="#actionButtonsContainer"
+>
+  Job
+</button>
+<button id="trainButton" class="to-light" onclick="doTraining()">Train</button>
 {% endif %}
