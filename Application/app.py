@@ -1,4 +1,4 @@
-# Key imports
+# External imports
 from flask import Flask, render_template, url_for, request
 from flask_socketio import SocketIO, emit
 from random import choice
@@ -139,6 +139,7 @@ def add_message():
     player:Character = load_stats()
     
     all_messages.append(Message(player.id, sender, sender_name, content))
+    emit("messageMe", {"data": None})
     return {"Status": "Success"}
 
 @app.route("/add/job/", methods=["POST"])
@@ -152,6 +153,19 @@ def add_job():
     return {"Status": "Success"}
 
 # Socket Stuffies
+@socketio.on("message")
+def add_message_socket(data):
+    data = loads(data)
+    sender = data.get("sender", None)
+    sender_name = data.get("sender_name", None)
+    content = data.get("content", None)
+
+    if not all([sender, sender_name, content]):
+        return {"error": "Insufficient Data"}
+    
+    player:Character = load_stats()
+    
+    all_messages.append(Message(player.id, sender, sender_name, content))
 
 @socketio.on("connect")
 def test_connect(message):

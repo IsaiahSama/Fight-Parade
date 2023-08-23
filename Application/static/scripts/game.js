@@ -3,19 +3,35 @@ window.setInterval(function () {
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }, 500);
 
+const chatBody = document.getElementById("chatBody");
+
+// Event listener
+var socket = io();
+
+socket.on("connect", () => {
+  socket.emit("introduce", { data: "Guess who just connected!" });
+});
+
+socket.on("messageListen", () => {
+  if (chatBody.attributes["hx-trigger"].nodeValue == "load") {
+    chatBody.attributes["hx-trigger"].nodeValue = "every 1s";
+  }
+});
+
+socket.on("messageIgnore", () => {
+  if (chatBody.attributes["hx-trigger"].nodeValue == "every 1s") {
+    chatBody.attributes["hx-trigger"].nodeValue = "load";
+  }
+});
+
 const sendMessage = (sender, sender_name, content) => {
-  data = {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json; charrset=UTF-8",
-    },
-    body: JSON.stringify({
-      sender,
-      sender_name,
-      content,
-    }),
-  };
-  fetch("/add/message/", data);
+  data = JSON.stringify({
+    sender,
+    sender_name,
+    content,
+  });
+
+  socket.emit("message", data);
 };
 
 const sendPlayerMessage = (content) => {
@@ -46,17 +62,3 @@ const doTraining = () => {
   sendPlayerMessage("TIME TO TRAIN!");
   sendSystemMessage("That's the spirit!");
 };
-
-// Event listener
-$(document).ready(() => {
-  var socket = io();
-
-  socket.on("connect", () => {
-    socket.emit("introduce", { data: "Guess who just connected!" });
-  });
-
-  socket.on("response", (message) => {
-    console.log("Just received a message from the server!");
-    console.log(message["data"]);
-  });
-});
