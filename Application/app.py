@@ -80,6 +80,11 @@ def get_job():
         return job.get_response()
     return {"RESPONSE": None, "ERROR": "No jobs could be found currently."}
 
+# Getting buttons
+@app.route("/get/buttons/action/")
+def get_action_buttons():
+    return render_template("actionButtons.html")
+
 # Adding
 @app.route("/add/user/", methods=["POST"])
 def add_user():

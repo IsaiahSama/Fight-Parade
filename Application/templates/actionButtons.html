@@ -1,0 +1,16 @@
+<div id="actionButtonsContainer">
+  <button id="questButton" class="to-light" onclick="doQuest()">Quest</button>
+  <button id="jobButton" class="to-light" onclick="doJob()">Job</button>
+  <button id="trainButton" class="to-light" onclick="doTraining()">
+    Train
+  </button>
+  <button
+    id="enemyButton"
+    class="to-light"
+    hx-get="/get/enemy/"
+    hx-target="#generalWindow"
+    hx-swap="innrHTML transition:true"
+  >
+    Show Enemy
+  </button>
+</div>

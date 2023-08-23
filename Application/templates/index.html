@@ -33,28 +33,11 @@
           </div>
           <div id="chatBody"></div>
         </div>
-        <section id="actionButtonsSection">
-          <div id="actionButtonsContainer">
-            <button id="questButton" class="to-light" onclick="doQuest()">
-              Quest
-            </button>
-            <button id="jobButton" class="to-light" onclick="doJob()">
-              Job
-            </button>
-            <button id="trainButton" class="to-light" onclick="doTraining()">
-              Train
-            </button>
-            <button
-              id="enemyButton"
-              class="to-light"
-              hx-get="/get/enemy/"
-              hx-target="#generalWindow"
-              hx-swap="innrHTML transition:true"
-            >
-              Show Enemy
-            </button>
-          </div>
-        </section>
+        <section
+          id="actionButtonsSection"
+          hx-get="/get/buttons/action/"
+          hx-trigger="load"
+        ></section>
       </section>
       <section id="generalSection" class="column">
         <div id="generalWindow" class="box slide-it">
