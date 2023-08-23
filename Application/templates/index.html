@@ -20,6 +20,10 @@
     />
     <link
       rel="stylesheet"
+      href="{{ url_for('static', filename='style/animations.css')}}"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
     <script src="https://unpkg.com/htmx.org@1.9.4"></script>
@@ -42,7 +46,7 @@
         </section>
       </section>
       <section id="generalSection" class="column">
-        <div id="generalWindow" class="box slide-it">
+        <div id="generalWindow" class="box slide-across">
           <center>General Window</center>
           <p>Get started by pressing the Profile button below</p>
         </div>
