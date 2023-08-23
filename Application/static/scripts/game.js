@@ -41,7 +41,7 @@ const sendPlayerMessage = (content) => {
 };
 
 const sendSystemMessage = (content) => {
-  sendMessage("other", "system", content);
+  sendMessage("system", "system", content);
 };
 
 // Gaming Buttons
@@ -50,8 +50,14 @@ const doJob = () => {
   sendSystemMessage("Let's see what we have available.");
   fetch("/get/job/")
     .then((response) => response.json())
-    .then((desc) => {
-      sendSystemMessage(desc["RESPONSE"]);
+    .then((data) => {
+      if ("ERROR" in data) {
+        sendSystemMessage(data["ERROR"]);
+        return;
+      }
+      sendSystemMessage(data["DESCRIPTION"]);
+      sendSystemMessage("<b>You " + data["STATUS"] + "</b>");
+      sendSystemMessage("<i>" + data["RESPONSE"] + "</i>");
     });
 };
 

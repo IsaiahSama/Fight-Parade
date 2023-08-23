@@ -77,8 +77,8 @@ def get_job():
     job:Job = choice(jobs)[0]
 
     if job:
-        return {"RESPONSE": job.description}
-    return {"RESPONSE": None}
+        return job.get_response()
+    return {"RESPONSE": None, "ERROR": "No jobs could be found currently."}
 
 # Adding
 @app.route("/add/user/", methods=["POST"])
