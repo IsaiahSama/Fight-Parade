@@ -165,7 +165,9 @@ def add_message_socket(data):
     
     player:Character = load_stats()
     
-    all_messages.append(Message(player.id, sender, sender_name, content))
+    message = Message(player.id, sender, sender_name, content)
+
+    emit("message", {"body": message.get_html()})
 
 @socketio.on("connect")
 def test_connect(message):

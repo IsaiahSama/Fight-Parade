@@ -12,16 +12,18 @@ socket.on("connect", () => {
   socket.emit("introduce", { data: "Guess who just connected!" });
 });
 
-socket.on("messageListen", () => {
-  if (chatBody.attributes["hx-trigger"].nodeValue == "load") {
-    chatBody.attributes["hx-trigger"].nodeValue = "every 1s";
-  }
-});
+const messages = [];
 
-socket.on("messageIgnore", () => {
-  if (chatBody.attributes["hx-trigger"].nodeValue == "every 1s") {
-    chatBody.attributes["hx-trigger"].nodeValue = "load";
-  }
+socket.on("message", (data) => {
+  let length = messages.length + 1;
+  messages.push(data["body"]);
+
+  setTimeout(() => {
+    let messageElement = document.createElement("div");
+    chatBody.appendChild(messageElement);
+    messageElement.outerHTML = data["body"];
+    messages.splice(0, 1);
+  }, 1000 * length);
 });
 
 const sendMessage = (sender, sender_name, content) => {
