@@ -46,3 +46,17 @@ const doTraining = () => {
   sendPlayerMessage("TIME TO TRAIN!");
   sendSystemMessage("That's the spirit!");
 };
+
+// Event listener
+$(document).ready(() => {
+  var socket = io();
+
+  socket.on("connect", () => {
+    socket.emit("introduce", { data: "Guess who just connected!" });
+  });
+
+  socket.on("response", (message) => {
+    console.log("Just received a message from the server!");
+    console.log(message["data"]);
+  });
+});

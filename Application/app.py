@@ -1,17 +1,28 @@
+# Key imports
 from flask import Flask, render_template, url_for, request
+from flask_socketio import SocketIO, emit
+from random import choice
+from json import loads
+from dotenv import dotenv_values
+
+# Testing
 from testing.OldClass.testing import Message, Stats, StatItem, Item, ShopItem
 from testing.OldClass.testing import *
+from modelTesting import *
+
+# Application
 from models.models import *
 from models.extensions import db
 from objects.objects import *
-from json import loads
 
-from modelTesting import *
-from random import choice
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///project.db"
+app.config['SECRET_KEY'] = dotenv_values(".env")["SECRET"]
+
 db.init_app(app)
+socketio: SocketIO = SocketIO(app)
+
 
 @app.route("/")
 def index():
@@ -140,8 +151,20 @@ def add_job():
 
     return {"Status": "Success"}
 
+# Socket Stuffies
+
+@socketio.on("connect")
+def test_connect(message):
+    emit("response", {"data": "Succeessfully connected"})
+
+@socketio.on("introduce")
+def introduce(message):
+    print("Someone's introducing themselves.")
+    print(message['data'])
+    emit("response", {"data": "We're glad to have you here!"})
+
 with app.app_context():
     db.create_all()
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=20000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=20000, debug=True)

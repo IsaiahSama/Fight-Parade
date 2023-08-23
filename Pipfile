@@ -7,6 +7,9 @@ name = "pypi"
 flask = "*"
 flask-sqlalchemy = "*"
 requests = "*"
+flask-socketio = "*"
+python-dotenv = "*"
+simple-websocket = "*"
 
 [dev-packages]
 
