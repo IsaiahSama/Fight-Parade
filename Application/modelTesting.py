@@ -13,13 +13,13 @@ def readlines(filename:str):
 
     return [line.strip() for line in lines]
 
-def get_info(filename):
+def get_info(filename, sep=" "):
     lines = readlines(filename)
-    fields = lines[0].split(" ")
+    fields = lines[0].split(sep)
     data = []
 
     for line in lines[1:]:
-        l = line.split(" ")
+        l = line.split(sep)
         datum = {}
         for i in range(len(fields)):
             target: str = l[i]
@@ -51,6 +51,7 @@ def create_models():
     armours = get_info("armours")
     abilities = get_info("abilities")
     passives  = get_info("passives")
+    jobs = get_info("jobs", " | ")
 
     # Making the requests to update for fighter
     make_request("user", fighters)
@@ -61,6 +62,7 @@ def create_models():
     make_request("item", armours)
     make_request("item", abilities)
     make_request('item', passives)
+    make_request("job", jobs)
 
 def load_stats() -> Fighter:
     stats = db.session.execute(db.select(Fighter)).fetchone()

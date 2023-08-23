@@ -120,6 +120,16 @@ def add_message():
     all_messages.append(Message(player.id, sender, sender_name, content))
     return {"Status": "Success"}
 
+@app.route("/add/job/", methods=["POST"])
+def add_job():
+    data = loads(request.json)
+    job = Job(**data)
+
+    db.session.add(job)
+    db.session.commit()
+
+    return {"Status": "Success"}
+
 with app.app_context():
     db.create_all()
 
