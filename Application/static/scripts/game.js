@@ -29,7 +29,12 @@ const sendSystemMessage = (content) => {
 // Gaming Buttons
 const doJob = () => {
   sendPlayerMessage("I want to do a job!");
-  sendSystemMessage("Oh you want to do a job I see. Bet!");
+  sendSystemMessage("Let's see what we have available.");
+  fetch("/get/job/")
+    .then((response) => response.json())
+    .then((desc) => {
+      sendSystemMessage(desc["RESPONSE"]);
+    });
 };
 
 const doQuest = () => {

@@ -7,6 +7,7 @@ from objects.objects import *
 from json import loads
 
 from modelTesting import *
+from random import choice
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///project.db"
@@ -58,6 +59,15 @@ def get_shop(type_=""):
 def get_enemy():
     enemy = load_enemy()
     return render_template("statWindowTemplate.html", stats=enemy)
+
+@app.route("/get/job/")
+def get_job():
+    jobs = db.session.execute(db.select(Job).filter_by(tier=choice([1, 2, 3, 4]))).fetchall()
+    job:Job = choice(jobs)[0]
+
+    if job:
+        return {"RESPONSE": job.description}
+    return {"RESPONSE": None}
 
 # Adding
 @app.route("/add/user/", methods=["POST"])
