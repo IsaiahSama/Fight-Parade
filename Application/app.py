@@ -29,7 +29,7 @@ def index():
     return render_template("index.html")
 
 # Getters
-all_messages:[Message] = [Message(1, "system", "system", "Welcome to Fight Parade")]
+all_messages:[Message] = []
 
 @app.route("/get/message/")
 def get_message():
@@ -174,14 +174,11 @@ def add_message_socket(data):
 
     emit("message", {"body": message.get_html()})
 
-@socketio.on("connect")
-def test_connect(message):
-    emit("response", {"data": "Succeessfully connected"})
 
 @socketio.on("introduce")
 def introduce(message):
-    print("Someone's introducing themselves.")
-    print(message['data'])
+    m = Message(1, "system", "system", "Welcome to Fight Parade")
+    emit('message', {"body": m.get_html()})
     emit("response", {"data": "We're glad to have you here!"})
 
 with app.app_context():
