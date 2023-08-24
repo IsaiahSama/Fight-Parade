@@ -1,0 +1,3 @@
+id | name | description | tooltip | effect | cost | tier | reborn | chant | cooldown | item_type
+710003 | Soul_Sucker | A_powerful_sucking_technique | Deals_2x_damage_and_heals_for_15hp | 15 | 25000 | 1 | 0 | SOUL_SUCKER | 3 | ability
+720101 | Blast | Blasts_the_enemy_with_a_powerful_attack | Increases_dmg_by_1.75x | -40 | 30000 | 2 | 0 | Outer..._BLAST | 4 | ability

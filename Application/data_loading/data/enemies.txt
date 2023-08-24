@@ -1,0 +1,2 @@
+id | name | stats_id | weapon_id | armour_id | ability_id | passive_id | entry_message | attack_message | item
+213413 | Slivial | 213413 | 320004 | -1 | 720101 | 920021 | Straight_from_Slimenia,_He_summons_his_tank | Fires_his_cannon_at | -1

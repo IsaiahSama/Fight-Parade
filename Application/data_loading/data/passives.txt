@@ -1,0 +1,2 @@
+id | name | description | tooltip | effect | cost | tier | reborn | chant | cooldown | item_type
+920021 | Regeneration | Regains_hp_after_every_turn | Restores_10%_hp_after_every_turn | 10 | 30000 | 2 | 0 | Regen_go_brr | 0 | passive

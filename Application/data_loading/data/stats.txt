@@ -1,0 +1,3 @@
+id | level | tier | exp | max_exp | health | base_health | power | base_power | defense | base_defense | crit_chance | base_crit | heal_chance | base_heal | pcoins
+3156322326 | 75 | 2 | 150 | 175 | 520 | 520 | 80 | 80 | 20 | 20 | 22 | 22 | 35 | 35 | 37903
+213413 | 80 | 2 | 350 | 350 | 600 | 600 | 30 | 30 | 15 | 15 | 30 | 30 | 45 | 45 | 3500

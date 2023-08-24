@@ -1,0 +1,34 @@
+id | description | tier
+1001 | Ms.Miller: "OOOOHHHH NOOOO. Brave adventurer, please help me find Precious. She's a normal fire breathing black cat." | 1
+1002 | Mr.Best: "Brave adventurer... me can't seem to find me glasses... come help an old man wud ya?" | 1
+1003 | Little Girl: "Wah wah... Brave Adventurer, that cat is scaring me... may you move it please?" | 1
+1004 | Man: "Hey... Brave Adventurer, come and help me move these tables please, they are rather heavy" | 1
+1005 | Group of kids: "OH STRONG ADVENTURER, May you play with us please?" | 1
+1006 | Mr.Douglas: "Why hello there young one, tell me a story of one of your adventures would you?" | 1
+1007 | Cat: "*purrrrrr*. It might want you to rub it's back, never know what you might find" | 1
+1009 | Mom: "Come and do your chores, just because you are an adventure now doesn't mean you can get away from chores" | 1
+1010 | Street Punk: "Try staying still for 1 minute will ya >:)" | 1
+2001 | Jerry: "Hey bruv... Go fishing for me would ya. It's to scary out there by myself. I'll pay you" | 2
+2002 | Teacher: "Ah, Adventurer-sama come and tell my class about some of your accomplishments as a hero" | 2
+2003 | Guild Owner: "I have a private little job for you... *He smiles as he slides you a piece of paper*" | 2
+2004 | Mom: "Come and do your chores, just because you are an adventure now doesn't mean you can get away from chores" | 2
+2005 | An enigmatic messenger approaches, their face hidden in shadows. 'I bear a task of utmost secrecy,' they murmur. 'The veiled realm beckons, where danger and reward intertwine.'" | 2
+2006 | Royal Audience: "Share your heroic feats at court. The kingdom eagerly awaits to honor your valor and tales of adventure." | 2
+2007 | Arcane Puzzle: "A sorcerer challenges you with a shifting spell enigma. Solve it to claim coveted arcane insights and rewards." | 2
+2008 | Mysterious Client: "Seeking assistance for a task in the shadows. Generous compensation promised for a task that demands discretion." | 2
+3002 | Old Lady: "Herro there young'un, help me cross the road now would ya?" | 3
+3003 | Mom: "Come and do your chores, just because you are an adventure now doesn't mean you can get away from chores" | 3
+3001 | Kid: "Heh, If you can catch me within 3 minutes, I'll give you something neat >:). I'm really fast tho" | 3
+3004 | Mr.Bynoe-Forde: "There's been someone stalking around my house at night... Catch them and teach them a lesson" | 3
+3005 | Shadow Sentinel: "An unsettling presence haunts Mr. Bynoe-Forde's abode. Emerge as the night's sentinel, unmask the intruder, and mete out a lesson in respect." | 3
+3006 | Daring Dare: "A mischievous kid's bet beckons. Pursue the fleet-footed challenger in a race against time. Victory promises a prize worth the chase." | 3
+3007 | Maternal Wisdom: "Embark on grand quests, yet the humble chore remains. Embrace the broom, young adventurer, for heroism starts with a tidy home." | 3
+3008 | Veiled Traveler: "Greetings, seeker. Aid an old wanderer in need. Guide them safely through this road's twists, and a hidden treasure shall be yours." | 3
+4001 | Quick, a village is under attack. Nothing to serious for you to have to organize a quest" | 4
+4002 | Your friend challenges you to Rock paper scissors... it's way more serious than it seems I swear" | 4
+4003 | Kevin: "Oh almighty adventurer, there be monsters lying in me basement, exterminate them please" | 4
+4004 | Queen of Avalor: "Oh dear adventurer, please guide my daughter Sophia to the neighbouring kingdom. You sigh..." | 4
+4005 | You walk past an alley and someone screams at you. <br/>Man: "Good sir, please help me, i'm being attacked by these ruffians. You sigh and try to help him out" | 4
+4006 | Some Wealthy man: "Now listen here little adventurer, My butler is away and I am ready for tea... So serve me" | 4
+4007 | Clown: "Hey Adventurer, come and entertain these kids with me *laughs*. A good adventurer must have good people skills as well" | 4
+4009 | Mom: "Come and do your chores, just because you are an adventurer now doesn't mean you can get away from chores" | 4

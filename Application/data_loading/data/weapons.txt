@@ -1,0 +1,3 @@
+id | name | description | tooltip | effect | cost | tier | reborn | item_type
+320001 | Blaster | blaster_go_pew_pew | The_barrel_is_still_hot | 40 | 14000 | 2 | 0 | weapon
+320004 | Miracle_Sword | A_sword_from_another_world | Straight_from_Slimenia | 50 | 20123 | 2 | 0 | weapon
