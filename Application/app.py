@@ -28,6 +28,12 @@ socketio: SocketIO = SocketIO(app)
 def index():
     return render_template("index.html")
 
+@app.route("/auth/<string:mode>/")
+def login_signup(mode:str):
+    if mode not in ["login", "register"]:
+        mode = "register"
+    return render_template("login.html", mode=mode.title())
+
 # Getters
 all_messages:[Message] = []
 

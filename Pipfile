@@ -10,6 +10,7 @@ requests = "*"
 flask-socketio = "*"
 python-dotenv = "*"
 simple-websocket = "*"
+flask-login = "*"
 
 [dev-packages]
 

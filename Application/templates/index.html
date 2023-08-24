@@ -1,104 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"
-      integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ=="
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style/style.css')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style/animations.css')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-    <script src="https://unpkg.com/htmx.org@1.9.4"></script>
-  </head>
-  <body>
-    <section id="centerSection" class="columns">
-      <section id="chatWindowSection" class="column is-three-quarters">
-        <div id="chatWindow" class="box">
-          <div id="chatHeader">
-            <center>Chat Window</center>
-          </div>
-          <div id="chatBody"></div>
+{% extends "base.html" %} {% block title %} Index {% endblock %} {% block body
+%}
+<body>
+  <section id="centerSection" class="columns">
+    <section id="chatWindowSection" class="column is-three-quarters">
+      <div id="chatWindow" class="box">
+        <div id="chatHeader">
+          <center>Chat Window</center>
         </div>
-        <section id="actionButtonsSection">
-          <div
-            id="actionButtonsContainer"
-            hx-get="/get/buttons/action/"
-            hx-trigger="load"
-          ></div>
-        </section>
-      </section>
-      <section id="generalSection" class="column">
-        <div id="generalWindow" class="box slide-across">
-          <center>General Window</center>
-          <p>Get started by pressing the Profile button below</p>
-        </div>
-        <section id="menuButtonsSection" class="buttons">
-          <button
-            id="shopButton"
-            class="to-dark"
-            hx-get="/get/shop/"
-            hx-target="#generalWindow"
-            hx-swap="innerHTML transition:true"
-          >
-            Shop
-          </button>
-          <button
-            id="invButton"
-            class="to-dark"
-            hx-get="/get/inventory/"
-            hx-target="#generalWindow"
-            hx-swap="innerHTML transition:true"
-          >
-            Inventory
-          </button>
-          <button
-            id="upgradeButton"
-            class="to-dark"
-            hx-get="/get/upgrades/"
-            hx-target="#generalWindow"
-            hx-swap="innerHTML transition:true"
-          >
-            Upgrades
-          </button>
-          <button
-            id="profileButton"
-            class="to-dark"
-            hx-get="/get/stats/"
-            hx-target="#generalWindow"
-            hx-swap="innerHTML transition:true"
-          >
-            Profile
-          </button>
-        </section>
+        <div id="chatBody"></div>
+      </div>
+      <section id="actionButtonsSection">
+        <div
+          id="actionButtonsContainer"
+          hx-get="/get/buttons/action/"
+          hx-trigger="load"
+        ></div>
       </section>
     </section>
+    <section id="generalSection" class="column">
+      <div id="generalWindow" class="box slide-across">
+        <center>General Window</center>
+        <p>Get started by pressing the Profile button below</p>
+      </div>
+      <section id="menuButtonsSection" class="buttons">
+        <button
+          id="shopButton"
+          class="to-dark"
+          hx-get="/get/shop/"
+          hx-target="#generalWindow"
+          hx-swap="innerHTML transition:true"
+        >
+          Shop
+        </button>
+        <button
+          id="invButton"
+          class="to-dark"
+          hx-get="/get/inventory/"
+          hx-target="#generalWindow"
+          hx-swap="innerHTML transition:true"
+        >
+          Inventory
+        </button>
+        <button
+          id="upgradeButton"
+          class="to-dark"
+          hx-get="/get/upgrades/"
+          hx-target="#generalWindow"
+          hx-swap="innerHTML transition:true"
+        >
+          Upgrades
+        </button>
+        <button
+          id="profileButton"
+          class="to-dark"
+          hx-get="/get/stats/"
+          hx-target="#generalWindow"
+          hx-swap="innerHTML transition:true"
+        >
+          Profile
+        </button>
+      </section>
+    </section>
+  </section>
 
-    <script>
-      const inactiveNotice = (event) => {
-        alert("This features is not yet available.");
-      };
-      document.querySelectorAll(".inactive").forEach((element) => {
-        element.addEventListener("click", inactiveNotice);
-      });
-    </script>
-    <script src="{{ url_for('static', filename='scripts/game.js') }}"></script>
-  </body>
-</html>
+  <script>
+    const inactiveNotice = (event) => {
+      alert("This features is not yet available.");
+    };
+    document.querySelectorAll(".inactive").forEach((element) => {
+      element.addEventListener("click", inactiveNotice);
+    });
+  </script>
+  <script src="{{ url_for('static', filename='scripts/game.js') }}"></script>
+  {% endblock %}
+</body>
