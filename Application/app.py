@@ -1,6 +1,7 @@
 # External imports
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_socketio import SocketIO, emit
+from flask_login import LoginManager, login_user, login_required, current_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from random import choice
 from json import loads
@@ -24,8 +25,18 @@ app.config['SECRET_KEY'] = dotenv_values(".env")["SECRET"]
 db.init_app(app)
 socketio: SocketIO = SocketIO(app)
 
+login_manager = LoginManager()
+login_manager.login_view = "login"
+login_manager.init_app(app)
+
+@login_manager.user_loader
+def load_user(user_id:int):
+    print(User.query.get(user_id))
+    return User.query.get(int(user_id))
+
 
 @app.route("/")
+@login_required
 def index():
     return render_template("index.html")
 
@@ -39,13 +50,19 @@ def login_signup(mode:str):
 def login():
     name = request.form.get("name")
     password = request.form.get('password')
+    remember = request.form.get("remember")
 
     user:User = db.session.execute(db.select(User).filter_by(name=name)).first()
+
     if not user or not check_password_hash(user[0].password, password):
         flash("Please check your login details and try again.", "is-danger")
         return redirect("/auth/login/")
     
-    flash("Logged in! Welcome " + name, "is-success")
+    if login_user(user[0], remember=remember):
+        flash("Logged in! Welcome " + name, "is-success")
+    else:
+        flash("You could not be logged in.", "is-info")
+        return redirect("/auth/login/")
     return redirect("/")
 
 @app.route("/auth/register/", methods=["POST"])
@@ -68,7 +85,7 @@ def register():
         return redirect("/auth/register/")
 
     
-    new_user = User(name=name, password=generate_password_hash(password, method="sha256"))
+    new_user = User(name=name, password=generate_password_hash(password, method="scrypt"))
     db.session.add(new_user)
 
     fighter = Fighter.create_new_fighter(id_=new_user.id, name=new_user.name)
@@ -82,6 +99,12 @@ def register():
     flash("Your account has been successfully created.", "is-success")
     return redirect("/auth/login/")
 
+@app.route("/logout/")
+@login_required
+def logout():
+    logout_user()
+    return redirect("/auth/login/")
+
 # Getters
 all_messages:[Message] = []
 
@@ -91,17 +114,20 @@ def get_message():
     return all_messages.pop(0).get_html()
 
 @app.route("/get/stats/")
+@login_required
 def get_profile():
     profile = load_stats()
     return render_template("statWindowTemplate.html", stats=profile)
 
 @app.route("/get/upgrades/")
+@login_required
 def get_upgrades():
     stats = load_stats().stats
     upgradables = load_upgrades()
     return render_template("upgradeWindowTemplate.html", stats=stats, stat_items=upgradables)
 
 @app.route("/get/inventory/")
+@login_required
 def get_inventory():
     player = load_stats()
     stats = player.stats
@@ -111,6 +137,7 @@ def get_inventory():
 
 @app.route("/get/shop/")
 @app.route("/get/shop/<string:type_>/")
+@login_required
 def get_shop(type_=""):
     stats = load_stats().stats
     tier, pcoins, level = stats.tier, stats.pcoins, stats.level
@@ -121,11 +148,13 @@ def get_shop(type_=""):
     return render_template(page, tier=tier, pcoins=pcoins, level=level, items=items)
 
 @app.route("/get/enemy/")
+@login_required
 def get_enemy():
     enemy = load_enemy()
     return render_template("statWindowTemplate.html", stats=enemy)
 
 @app.route("/get/job/")
+@login_required
 def get_job():
     jobs = db.session.execute(db.select(Job).filter_by(tier=choice([1, 2, 3, 4]))).fetchall()
     job:Job = choice(jobs)[0]
