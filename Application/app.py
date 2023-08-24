@@ -34,7 +34,6 @@ def load_user(user_id:int):
     print(User.query.get(user_id))
     return User.query.get(int(user_id))
 
-
 @app.route("/")
 @login_required
 def index():
@@ -119,20 +118,20 @@ def get_message():
 @app.route("/get/stats/")
 @login_required
 def get_profile():
-    profile = load_stats()
+    profile = get_fighter_from_user()
     return render_template("statWindowTemplate.html", stats=profile)
 
 @app.route("/get/upgrades/")
 @login_required
 def get_upgrades():
-    stats = load_stats().stats
+    stats = get_fighter_from_user().stats
     upgradables = load_upgrades()
     return render_template("upgradeWindowTemplate.html", stats=stats, stat_items=upgradables)
 
 @app.route("/get/inventory/")
 @login_required
 def get_inventory():
-    player = load_stats()
+    player = get_fighter_from_user()
     stats = player.stats
     tier, pcoins = stats.tier, stats.pcoins
     items = load_inventory(player.inventory)
@@ -142,7 +141,7 @@ def get_inventory():
 @app.route("/get/shop/<string:type_>/")
 @login_required
 def get_shop(type_=""):
-    stats = load_stats().stats
+    stats = get_fighter_from_user().stats
     tier, pcoins, level = stats.tier, stats.pcoins, stats.level
     items = load_items() if not type_ else load_items(type_)
 
@@ -266,6 +265,11 @@ def introduce(message):
     m = Message(1, "system", "system", "Welcome to Fight Parade")
     emit('message', {"body": m.get_html()})
     emit("response", {"data": "We're glad to have you here!"})
+
+
+# Helpers!
+def get_fighter_from_user():
+    return db.session.execute(db.select(Fighter).filter_by(id=current_user.id)).first()[0]
 
 with app.app_context():
     db.create_all()
