@@ -41,11 +41,7 @@ def login():
     password = request.form.get('password')
 
     user:User = db.session.execute(db.select(User).filter_by(name=name)).first()
-    if not user:
-        flash("There is no user by this name", "is-warning")
-        return redirect("/auth/login/")
-
-    if not check_password_hash(user[0].password, password):
+    if not user or not check_password_hash(user[0].password, password):
         flash("Please check your login details and try again.", "is-danger")
         return redirect("/auth/login/")
     
@@ -56,11 +52,21 @@ def login():
 def register():
     name = request.form.get("name")
     password = request.form.get("password")
+    password2 = request.form.get("password2")
+
+    if len(name) < 2 or len(password) < 5:
+        flash("Name and / or Password is too short.", "is-info")
+        return redirect("/auth/register/")
 
     user = db.session.execute(db.select(User).filter_by(name=name)).first()
     if user:
         flash("This name is already taken.", "is-warning")
         return redirect("/auth/register/")
+    
+    if password != password2:
+        flash("Your passwords do not match", "is-warning")
+        return redirect("/auth/register/")
+
     
     new_user = User(name=name, password=generate_password_hash(password, method="sha256"))
     db.session.add(new_user)
