@@ -4,3 +4,4 @@ from .item import BaseItem, Item
 from .skills import Ability, Passive
 from .stats import Stats
 from .jobs import Job
+from .user import User

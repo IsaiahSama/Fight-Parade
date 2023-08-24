@@ -2,6 +2,8 @@
 from .extensions import db
 
 class User(db.Model):
+    """This model represents a User Account."""
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20))
-    password = db.Columns(db.String(30))
+    password = db.Column(db.String(30))

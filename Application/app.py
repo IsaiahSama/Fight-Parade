@@ -1,6 +1,7 @@
 # External imports
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_socketio import SocketIO, emit
+from werkzeug.security import generate_password_hash, check_password_hash
 from random import choice
 from json import loads
 from dotenv import dotenv_values
@@ -33,6 +34,40 @@ def login_signup(mode:str):
     if mode not in ["login", "register"]:
         mode = "register"
     return render_template("login.html", mode=mode.title())
+
+@app.route("/auth/login/", methods=["POST"])
+def login():
+    name = request.form.get("name")
+    password = request.form.get('password')
+
+    user:User = db.session.execute(db.select(User).filter_by(name=name)).first()
+    if not user:
+        flash("There is no user by this name", "is-warning")
+        return redirect("/auth/login/")
+
+    if not check_password_hash(user[0].password, password):
+        flash("Please check your login details and try again.", "is-danger")
+        return redirect("/auth/login/")
+    
+    flash("Logged in! Welcome " + name, "is-success")
+    return redirect("/")
+
+@app.route("/auth/register/", methods=["POST"])
+def register():
+    name = request.form.get("name")
+    password = request.form.get("password")
+
+    user = db.session.execute(db.select(User).filter_by(name=name)).first()
+    if user:
+        flash("This name is already taken.", "is-warning")
+        return redirect("/auth/register/")
+    
+    new_user = User(name=name, password=generate_password_hash(password, method="sha256"))
+    db.session.add(new_user)
+    db.session.commit()
+
+    flash("Your account has been successfully created.", "is-success")
+    return redirect("/auth/login/")
 
 # Getters
 all_messages:[Message] = []
