@@ -87,14 +87,16 @@ def register():
     
     new_user = User(name=name, password=generate_password_hash(password, method="scrypt"))
     db.session.add(new_user)
+    db.session.commit()
 
     fighter = Fighter.create_new_fighter(id_=new_user.id, name=new_user.name)
     db.session.add(fighter)
+    db.session.commit()
 
     stats = Stats.create_stats(id_=new_user.id)
     db.session.add(stats)
-
     db.session.commit()
+
 
     flash("Your account has been successfully created.", "is-success")
     return redirect("/auth/login/")
