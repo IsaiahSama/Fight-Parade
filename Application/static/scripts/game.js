@@ -1,7 +1,4 @@
 const chatWindow = document.getElementById("chatWindow");
-window.setInterval(function () {
-  chatWindow.scrollTop = chatWindow.scrollHeight;
-}, 500);
 
 const chatBody = document.getElementById("chatBody");
 
@@ -23,6 +20,7 @@ socket.on("message", (data) => {
     chatBody.appendChild(messageElement);
     messageElement.outerHTML = data["body"];
     messages.splice(0, 1);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
   }, 1000 * length);
 });
 
