@@ -12,20 +12,7 @@
   <p>Paradians: {{ stats.pcoins }}₱</p>
 </div>
 <hr />
-<div id="upgradeStatList" class="generalGrid">
-  {% for stat_item in stat_items %}
-  <div class="upgradeStatCard card">
-    <p class="card-header-title is-centered">
-      {{ stat_item.name }}: {{ stat_item.current_max }} / {{ stat_item.cap }}
-    </p>
-    <div class="card-footer">
-      <p class="card-footer-item">Increase by: {{ stat_item.incr }}</p>
-      <p class="card-footer-item">Price: {{ stat_item.price }}₱</p>
-      <p class="card-footer-item">!upgrade {{ stat_item.name }}</p>
-    </div>
-  </div>
-  {% endfor %}
-</div>
+<div id="upgradeStatList" class="generalGrid">{{ stat_items | safe }}</div>
 {% else %}
 <p>No data loaded</p>
 {% endif %}

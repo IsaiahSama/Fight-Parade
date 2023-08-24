@@ -184,6 +184,10 @@ section {
   margin-top: 0.5em;
 }
 
+.card:hover {
+  background-color: #f9f9f9;
+}
+
 .statContent {
   display: flex;
   justify-content: space-between;

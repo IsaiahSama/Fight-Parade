@@ -15,7 +15,7 @@ from dotenv import dotenv_values
 # Application
 from models.models import *
 from models.extensions import db
-from objects.objects import *
+from models.objects.objects import *
 
 
 app = Flask(__name__)
@@ -124,8 +124,8 @@ def get_profile():
 @app.route("/get/upgrades/")
 @login_required
 def get_upgrades():
-    stats = get_fighter_from_user().stats
-    upgradables = load_upgrades()
+    stats: Stats = get_fighter_from_user().stats
+    upgradables = stats.get_upgrades_html()
     return render_template("upgradeWindowTemplate.html", stats=stats, stat_items=upgradables)
 
 @app.route("/get/inventory/")
