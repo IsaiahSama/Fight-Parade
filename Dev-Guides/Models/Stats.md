@@ -17,7 +17,7 @@ These core statistics are:
 - base_defense
 - crit_chance
 - base_crit
-- heal_chancne
+- heal_chance
 - base_heal
 
 ## About Bases

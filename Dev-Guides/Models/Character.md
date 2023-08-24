@@ -6,16 +6,13 @@ The attributes for Characters are:
 
 - id
 - name
-- level
-- health
-- power
-- heal_chance
-- crit_chance
+- stats
 - weapon
 - armour
 - ability
 - passive
-- tier
+
+Refer to the document on Stats
 
 ## Player / Fighter
 
@@ -23,7 +20,6 @@ Players (also referred to as Fighters) are the characters that the player will b
 
 The unique attributes for players are:
 
-- paradians (pcoins)
 - inventory
 
 ## Enemies
@@ -34,9 +30,7 @@ Unique attributes for enemies are:
 
 - entry message
 - attack_message
-- paradians_yield
 - item
-  ~- xp_yield~
 
 ### Entry message
 
@@ -50,7 +44,7 @@ This is the message displayed when the enemy attacks. Will change if the enemy i
 
 When defeated, enemies will grant the player exp and paradians.
 
-Update: Exp yield will now just yield the exp points
+Update: Exp yield will now just yield the exp points, as will paradian_yield
 
 ### Item
 

@@ -70,6 +70,13 @@ def register():
     
     new_user = User(name=name, password=generate_password_hash(password, method="sha256"))
     db.session.add(new_user)
+
+    fighter = Fighter.create_new_fighter(id_=new_user.id, name=new_user.name)
+    db.session.add(fighter)
+
+    stats = Stats.create_stats(id_=new_user.id)
+    db.session.add(stats)
+
     db.session.commit()
 
     flash("Your account has been successfully created.", "is-success")

@@ -21,5 +21,9 @@ class Stats(db.Model):
     heal_chance = sa.Column(sa.Integer)
     base_heal = sa.Column(sa.Integer)
 
+    @staticmethod
+    def create_stats(id_:int = id):
+        return Stats(id=id_, level=1, pcoins=50, exp=0, max_exp=35, tier=1, health=50, base_health=50, power=5, base_power=5, defense=0, base_defense=0, crit_chance=3, base_crit=3, heal_chance=5, base_heal=5)
+
 
 

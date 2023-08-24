@@ -11,7 +11,7 @@ class Character(db.Model):
     armour_id = db.Column(db.Integer, db.ForeignKey("armour.id"))
     ability_id = db.Column(db.Integer, db.ForeignKey("ability.id"))
     passive_id = db.Column(db.Integer, db.ForeignKey("passive.id"))
-    stats = db.relationship("Stats", foreign_keys=[stats_id], backref='character')
+    stats = db.relationship("Stats", foreign_keys=[stats_id], backref='character', lazy=True)
     weapon = db.relationship("Weapon", foreign_keys=[weapon_id], backref='character', lazy=True)
     armour = db.relationship("Armour", foreign_keys=[armour_id], backref='character', lazy=True)
     ability = db.relationship("Ability", foreign_keys=[ability_id], backref='character', lazy=True)
@@ -71,7 +71,12 @@ class Fighter(Character):
     """This is the Player class that players will use to navigate through the game"""
 
     id = db.Column(db.Integer, db.ForeignKey('character.id'), primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     inventory = db.Column(db.String(100))
+
+    @staticmethod
+    def create_new_fighter(id_:int, name:str):
+        return Fighter(id=id_, name=name, stats_id=id_, user_id=id_)
 
 class Enemy(Character):
     """THis is the Enemy class that will represent foes in the game"""
