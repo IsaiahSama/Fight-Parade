@@ -14,6 +14,11 @@
   Show Enemy
 </button>
 
+{% elif type == "train" %}
+<button id="attackButton" class="to-dark">Power</button>
+<button id="defendButton" class="to-dark">Defense</button>
+<button id="abilityButton" class="to-dark">Health</button>
+
 {% else %}
 <button
   id="questButton"
@@ -33,5 +38,13 @@
 >
   Job
 </button>
-<button id="trainButton" class="to-light" onclick="doTraining()">Train</button>
+<button
+  id="trainButton"
+  class="to-light"
+  onclick="doTraining()"
+  hx-get="/get/buttons/train/"
+  hx-target="#actionButtonsContainer"
+>
+  Train
+</button>
 {% endif %}

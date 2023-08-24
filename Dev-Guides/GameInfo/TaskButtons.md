@@ -17,4 +17,10 @@ Job currently has no task buttons. This is subject to change.
 
 ## Train
 
+Training will have the following task buttons
+
+- Power
+- Defense
+- Health
+
 (Might be deprecated. Not sure as of yet.)

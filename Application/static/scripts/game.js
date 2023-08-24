@@ -82,4 +82,6 @@ const doQuest = () => {
 const doTraining = () => {
   sendPlayerMessage("TIME TO TRAIN!");
   sendSystemMessage("That's the spirit!");
+  sendSystemMessage("What would you like to train? Select from below!");
+  setTimeout(restoreActions, 5000);
 };
