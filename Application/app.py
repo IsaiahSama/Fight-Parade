@@ -8,9 +8,9 @@ from json import loads
 from dotenv import dotenv_values
 
 # Testing
-from testing.OldClass.testing import Message, Stats, StatItem, Item, ShopItem
-from testing.OldClass.testing import *
-from modelTesting import *
+# from testing.OldClass.testing import Message, Stats, StatItem, Item, ShopItem
+# from testing.OldClass.testing import *
+# from modelTesting import *
 
 # Application
 from models.models import *
@@ -143,17 +143,22 @@ def get_inventory():
 def get_shop(type_=""):
     stats = get_fighter_from_user().stats
     tier, pcoins, level = stats.tier, stats.pcoins, stats.level
-    items = load_items() if not type_ else load_items(type_)
+    items = load_shop() if not type_ else load_shop(type_)
 
     page = "shopWindowTemplate.html" if not type_ else "shopItemsTemplate.html"
 
     return render_template(page, tier=tier, pcoins=pcoins, level=level, items=items)
 
-@app.route("/get/enemy/")
+@app.route("/get/enemy/<int:enemy_id>/")
 @login_required
-def get_enemy():
-    enemy = load_enemy()
-    return render_template("statWindowTemplate.html", stats=enemy)
+def get_enemy(enemy_id:int):
+    if not enemy_id:
+        return {"body": "No ID was provided."}
+    
+    enemy = db.session.execute(db.select(Enemy).filter_by(id=enemy_id)).first()
+    if not enemy:
+        return "No enemy with that ID exists."
+    return render_template("statWindowTemplate.html", stats=enemy[0])
 
 @app.route("/get/job/")
 @login_required
@@ -226,7 +231,7 @@ def add_message():
     if not all([sender, sender_name, content]):
         return {"error": "Insufficient Data"}
     
-    player:Character = load_stats()
+    player:Character = get_fighter_from_user()
     
     all_messages.append(Message(player.id, sender, sender_name, content))
     emit("messageMe", {"data": None})
@@ -253,7 +258,7 @@ def add_message_socket(data):
     if not all([sender, sender_name, content]):
         return {"error": "Insufficient Data"}
     
-    player:Character = load_stats()
+    player:Character = get_fighter_from_user()
     
     message = Message(player.id, sender, sender_name, content)
 
@@ -268,8 +273,57 @@ def introduce(message):
 
 
 # Helpers!
-def get_fighter_from_user():
+def get_fighter_from_user() -> Fighter:
+    """Retrieves the fighter object from the logged in user.
+    
+    Returns:
+        Fighter"""
+    
     return db.session.execute(db.select(Fighter).filter_by(id=current_user.id)).first()[0]
+
+def load_inventory(item_str:str) -> [Item]:
+    """Loads the player's inventory into actual Item objects
+    
+    Returns:
+        List of Item"""
+    
+    if not item_str: return []
+    item_ids = [int(item_id.strip()) for item_id in item_str.rstrip(',').split(",")]
+
+    items = [db.session.execute(db.select(Item).filter_by(id=item_id)).first() for item_id in item_ids]
+
+    return [item[0] for item in items]
+
+def load_shop(item_type="", tier=None) -> "[BaseItem] | None":
+    """Loads all items from the database matching the specified type and tier.
+    
+    Args:
+        item_type (str): The type of item to find.
+        tier (int): The tier of items to show.
+        
+    Returns:
+        List of items"""
+    
+    if item_type:
+        if item_type == "skill":
+            abils = db.session.execute(db.select(BaseItem).filter_by(item_type="ability")).fetchall()
+            passives = db.session.execute(db.select(BaseItem).filter_by(item_type='passive')).fetchall()
+            items = [*abils, *passives]
+        else:
+            items = db.session.execute(db.select(BaseItem).filter_by(item_type=item_type.lower())).fetchall()
+    else:
+        items = db.session.execute(db.select(BaseItem)).fetchall()
+    
+    if items: 
+        if not tier:
+            user_tier = get_fighter_from_user().stats.tier
+            return [item[0] for item in items if item[0].tier == user_tier]
+        elif tier == -1:
+            return [item[0] for item in items]
+        else:
+            return [item[0] for item in items if item[0].tier == tier]
+        
+    else: return None
 
 with app.app_context():
     db.create_all()
