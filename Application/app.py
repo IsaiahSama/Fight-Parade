@@ -26,7 +26,7 @@ db.init_app(app)
 socketio: SocketIO = SocketIO(app)
 
 login_manager = LoginManager()
-login_manager.login_view = "login"
+login_manager.login_view = "/auth/login/"
 login_manager.init_app(app)
 
 @login_manager.user_loader
@@ -38,7 +38,7 @@ def load_user(user_id:int):
 @app.route("/")
 @login_required
 def index():
-    return render_template("index.html")
+    return render_template("index.html", name=current_user.name)
 
 @app.route("/auth/<string:mode>/")
 def login_signup(mode:str):
@@ -99,10 +99,11 @@ def register():
     flash("Your account has been successfully created.", "is-success")
     return redirect("/auth/login/")
 
-@app.route("/logout/")
+@app.route("/auth/logout/")
 @login_required
 def logout():
     logout_user()
+    flash("Logged out", "is-info")
     return redirect("/auth/login/")
 
 # Getters
